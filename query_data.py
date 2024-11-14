@@ -1,10 +1,9 @@
 import argparse
-import os
-from langchain.vectorstores.chroma import Chroma
+from langchain_chroma import Chroma
 from langchain.prompts import ChatPromptTemplate
-from groq import Groq  # Import Groq
+from langchain_ollama import OllamaLLM
 
-from embedding_function import load_embedding_function  # Updated import
+from embedding_function import load_embedding_function
 
 CHROMA_PATH = "chroma"
 
@@ -18,17 +17,19 @@ Answer the question based only on the following context:
 Answer the question based on the above context: {question}
 """
 
+
 def main():
     # Create CLI.
     parser = argparse.ArgumentParser()
     parser.add_argument("query_text", type=str, help="The query text.")
     args = parser.parse_args()
     query_text = args.query_text
-    prompt, results = create_query_with_context(query_text)
-    query_llm(prompt, results)
+    query_rag(query_text)
 
-def create_query_with_context(query_text: str):
-    embedding_function = load_embedding_function()  # Updated function call
+
+def query_rag(query_text: str):
+    # Prepare the DB.
+    embedding_function = load_embedding_function()
     db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embedding_function)
 
     # Search the DB.
@@ -37,34 +38,16 @@ def create_query_with_context(query_text: str):
     context_text = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
     prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
     prompt = prompt_template.format(context=context_text, question=query_text)
-    return prompt, results
+    # print(prompt)
 
-def query_llm(prompt: str, results):
-    print(prompt)
-
-    # Initialize the Groq client
-    client = Groq(
-        api_key=os.environ.get("GROQ_API_KEY"),
-    )
-
-    # Generate the response using the Groq client
-    chat_completion = client.chat.completions.create(
-        messages=[
-            {
-                "role": "user",
-                "content": prompt,
-            }
-        ],
-        model="llama-3.1-8b-instant",
-    )
-
-    # Access the response text correctly
-    response_text = chat_completion.choices[0].message.content
+    model = OllamaLLM(model="llama3.2")
+    response_text = model.invoke(prompt)
 
     sources = [doc.metadata.get("id", None) for doc, _score in results]
-    formatted_response = f"\n\nResponse: {response_text}\n\nSources: {sources}"
+    formatted_response = f"Response: {response_text}\nSources: {sources}"
     print(formatted_response)
     return response_text
+
 
 if __name__ == "__main__":
     main()

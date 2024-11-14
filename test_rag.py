@@ -1,5 +1,6 @@
+import argparse
 from query_data import query_rag
-from langchain_community.llms.ollama import Ollama
+from langchain_ollama import OllamaLLM
 
 EVAL_PROMPT = """
 Expected Response: {expected_response}
@@ -8,42 +9,64 @@ Actual Response: {actual_response}
 (Answer with 'true' or 'false') Does the actual response match the expected response? 
 """
 
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--test_file", type=str, help="The file containing the test questions.")
+    args = parser.parse_args()
+    test_file = args.test_file
 
-def test_monopoly_rules():
-    assert query_and_validate(
-        question="How much total money does a player start with in Monopoly? (Answer with the number only)",
-        expected_response="$1500",
-    )
+    with open(test_file, "r") as file:
+        questions = file.readlines()
 
+    is_tf_file = test_file.endswith("_TF.txt")
+    results = []
+    for count, line in enumerate(questions):
+        if line.strip():
+            print(f"Processing question {count + 1}...")
+            expected_response, question = parse_question(line)
+            if is_tf_file:
+                question += " (Start response with your answer: True/False, then short explanation <30 words)"
+            response_text = query_rag(question)
+            is_correct = evaluate_response(response_text, expected_response)
+            print(f"Correct: {is_correct}")
+            results.append((question, expected_response, response_text, is_correct))
 
-def test_ticket_to_ride_rules():
-    assert query_and_validate(
-        question="How many points does the longest continuous train get in Ticket to Ride? (Answer with the number only)",
-        expected_response="10 points",
-    )
+    with open("responses.txt", "w") as file:
+        for count, (question, expected_response, response_text, is_correct) in enumerate(results, start=1):            
+            file.write(f"{count}.\n")
+            file.write(f"Question: {question}\n")
+            file.write(f"Expected Response: {expected_response}\n")
+            file.write(f"Response: {response_text}\n")
+            file.write(f"Correct: {is_correct}\n\n")
+        
+        print(f"Score: {sum(is_correct for _, _, is_correct in results)}")
+        file.write(f"Score: {sum(is_correct for _, _, is_correct in results)} \n")
 
+def parse_question(line):
+    parts = line.split(": ", 1)
+    expected_response = parts[0].lower().replace("•", "").strip() == "true"
+    print("Expected response: ", expected_response)
+    question = parts[1].strip()
+    return expected_response, question
 
-def query_and_validate(question: str, expected_response: str):
-    response_text = query_rag(question)
+def evaluate_response(response_text, expected_response):
+    
     prompt = EVAL_PROMPT.format(
-        expected_response=expected_response, actual_response=response_text
+        expected_response="true" if expected_response else "false",
+        actual_response=response_text
     )
 
-    model = Ollama(model="mistral")
+    model = OllamaLLM(model="llama3.2")
     evaluation_results_str = model.invoke(prompt)
     evaluation_results_str_cleaned = evaluation_results_str.strip().lower()
 
-    print(prompt)
-
     if "true" in evaluation_results_str_cleaned:
-        # Print response in Green if it is correct.
-        print("\033[92m" + f"Response: {evaluation_results_str_cleaned}" + "\033[0m")
         return True
     elif "false" in evaluation_results_str_cleaned:
-        # Print response in Red if it is incorrect.
-        print("\033[91m" + f"Response: {evaluation_results_str_cleaned}" + "\033[0m")
         return False
     else:
-        raise ValueError(
-            f"Invalid evaluation result. Cannot determine if 'true' or 'false'."
-        )
+        response_text += f"Ambiguous response. Cannot determine if 'true' or 'false'."
+        return False
+
+if __name__ == "__main__":
+    main()
