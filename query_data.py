@@ -3,7 +3,7 @@ from langchain_chroma import Chroma
 from langchain.prompts import ChatPromptTemplate
 from langchain_ollama import OllamaLLM
 
-from get_embedding_function import get_embedding_function
+from embedding_function import load_embedding_function
 
 CHROMA_PATH = "chroma"
 
@@ -29,7 +29,7 @@ def main():
 
 def query_rag(query_text: str):
     # Prepare the DB.
-    embedding_function = get_embedding_function()
+    embedding_function = load_embedding_function()
     db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embedding_function)
 
     # Search the DB.

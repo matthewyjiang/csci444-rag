@@ -1,37 +1,38 @@
+# populate_database.py
 import argparse
 import os
 import shutil
 from langchain_community.document_loaders.pdf import PyPDFDirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.schema.document import Document
-from get_embedding_function import get_embedding_function
+from embedding_function import initialize_embedding_function
 from langchain.vectorstores.chroma import Chroma
-
 
 CHROMA_PATH = "chroma"
 DATA_PATH = "data"
 
-
 def main():
-
-    # Check if the database should be cleared (using the --clear flag).
+    # Check if the database should be cleared (using the --reset flag).
     parser = argparse.ArgumentParser()
     parser.add_argument("--reset", action="store_true", help="Reset the database.")
     args = parser.parse_args()
     if args.reset:
-        print("✨ Clearing Database")
+        print("✅ Clearing Database")
         clear_database()
 
     # Create (or update) the data store.
     documents = load_documents()
-    chunks = split_documents(documents)
-    add_to_chroma(chunks)
+    all_texts = [doc.page_content for doc in documents]
+    
+    # Initialize embedding function with all_texts (only during population)
+    embedding_function = initialize_embedding_function(all_texts)
 
+    chunks = split_documents(documents)
+    add_to_chroma(chunks, embedding_function)
 
 def load_documents():
     document_loader = PyPDFDirectoryLoader(DATA_PATH)
     return document_loader.load()
-
 
 def split_documents(documents: list[Document]):
     text_splitter = RecursiveCharacterTextSplitter(
@@ -42,13 +43,10 @@ def split_documents(documents: list[Document]):
     )
     return text_splitter.split_documents(documents)
 
-
-def add_to_chroma(chunks: list[Document]):
-    # Load the existing database.
+def add_to_chroma(chunks, embedding_function):
     db = Chroma(
-        persist_directory=CHROMA_PATH, embedding_function=get_embedding_function()
+        persist_directory=CHROMA_PATH, embedding_function=embedding_function
     )
-
     # Calculate Page IDs.
     chunks_with_ids = calculate_chunk_ids(chunks)
 
@@ -58,25 +56,21 @@ def add_to_chroma(chunks: list[Document]):
     print(f"Number of existing documents in DB: {len(existing_ids)}")
 
     # Only add documents that don't exist in the DB.
-    new_chunks = []
+    new_documents = []
     for chunk in chunks_with_ids:
         if chunk.metadata["id"] not in existing_ids:
-            new_chunks.append(chunk)
+            new_documents.append(chunk)  # Append the entire Document object
 
-    if len(new_chunks):
-        print(f"👉 Adding new documents: {len(new_chunks)}")
-        new_chunk_ids = [chunk.metadata["id"] for chunk in new_chunks]
-        db.add_documents(new_chunks, ids=new_chunk_ids)
+    if new_documents:
+        print(f"✅ Adding new documents: {len(new_documents)}")
+        db.add_documents(new_documents)  # Chroma handles embedding internally
         db.persist()
     else:
         print("✅ No new documents to add")
 
-
 def calculate_chunk_ids(chunks):
-
     # This will create IDs like "data/monopoly.pdf:6:2"
     # Page Source : Page Number : Chunk Index
-
     last_page_id = None
     current_chunk_index = 0
 
@@ -100,11 +94,9 @@ def calculate_chunk_ids(chunks):
 
     return chunks
 
-
 def clear_database():
     if os.path.exists(CHROMA_PATH):
         shutil.rmtree(CHROMA_PATH)
-
 
 if __name__ == "__main__":
     main()
