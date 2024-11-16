@@ -6,7 +6,6 @@ from langchain_ollama import OllamaLLM
 from embedding_function import load_embedding_function
 
 CHROMA_PATH = "chroma"
-
 PROMPT_TEMPLATE = """
 Answer the question based only on the following context:
 
@@ -39,15 +38,14 @@ def query_rag(query_text: str, print_output=True):
     prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
     prompt = prompt_template.format(context=context_text, question=query_text)
     # print(prompt)
-
-    model = OllamaLLM(model="llama3.2")
+    model = OllamaLLM(model="dolphin-mixtral")
     response_text = model.invoke(prompt)
 
     sources = [doc.metadata.get("id", None) for doc, _score in results]
     formatted_response = f"Response: {response_text}\nSources: {sources}"
     if print_output:
         print(formatted_response)
-    return response_text
+    return response_text, sources
 
 
 if __name__ == "__main__":

@@ -13,13 +13,14 @@ LOGFILE = "validate_responses.log"
 CHROMA_PATH = "chroma"
 
 PROMPT_TEMPLATE = """
-Do the task based on the following answer:
+You are a system designed to verify the accuracy of answers. Compare the RAG answer with the ground truth and determine if the RAG answer correctly reflects the ground truth. 
 
-{answer}
+- RAG Answer: {RAG_ANSWER}
+- Ground Truth: {GROUND_TRUTH}
 
----
+The ground truth is either "true" or "false". If the RAG answer aligns with the ground truth, respond with "TRUE". If it does not align, respond with "FALSE". 
 
-Task: Output only the text "TRUE" if the response matches the answer, and only the text "FALSE" if the response doesnt not match the answer: {response}
+Respond with only one word: TRUE or FALSE.
 """
 
 
@@ -40,11 +41,16 @@ def main():
     count_matching = 0
     count_total = 0
     
+    
+    
     for index, row in df.iterrows():
         question = row['questions']
         answer = row['answers']
-        response = query_rag(question, print_output=False)
-        result = validate_response(answer, response)
+        
+        logger.info("querying RAG + model")
+        response, sources = query_rag(question, print_output=False)
+        logger.info("querying validation model")
+        result = validate_response(answer, response).strip()
         # log question, response, answer, correctness
         
         if result == "TRUE":
@@ -63,7 +69,8 @@ def main():
         QUESTION: {question}
         EXPECTED: {answer}
         RESPONSE: "{response}"
-        MATCHES: {result}
+        SOURCES: {sources}
+        MATCHES: {result_bool}
         ============================
         """
         logger.info(logstring)
@@ -76,9 +83,8 @@ def main():
 
 def validate_response(answer: str, response: str):
     prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
-    prompt = prompt_template.format(answer=answer, response=response)
-    
-    model = OllamaLLM(model="llama3.2")
+    prompt = prompt_template.format(GROUND_TRUTH=answer, RAG_ANSWER=response)
+    model = OllamaLLM(model="hermes3")
     response_text = model.invoke(prompt)
     
     return response_text
