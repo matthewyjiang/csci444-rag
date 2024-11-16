@@ -14,7 +14,7 @@ Answer the question based only on the following context:
 
 ---
 
-Answer the question based on the above context: {question}
+Answer the question based on the above context, placing "True" or "False" at the beginning of the response: {question}
 """
 
 
@@ -27,7 +27,7 @@ def main():
     query_rag(query_text)
 
 
-def query_rag(query_text: str):
+def query_rag(query_text: str, print_output=True):
     # Prepare the DB.
     embedding_function = load_embedding_function()
     db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embedding_function)
@@ -45,7 +45,8 @@ def query_rag(query_text: str):
 
     sources = [doc.metadata.get("id", None) for doc, _score in results]
     formatted_response = f"Response: {response_text}\nSources: {sources}"
-    print(formatted_response)
+    if print_output:
+        print(formatted_response)
     return response_text
 
 

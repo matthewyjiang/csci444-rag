@@ -1,0 +1,31 @@
+questions,answers
+"True/False: In linear regression, the bias term is responsible for shifting the linear function up or down.", true
+"True/False: The loss function used in linear regression is always the squared loss function.", true
+"True/False: Gradient descent is a specific algorithm used only for optimizing linear regression models.", false
+"True/False: Adding polynomial features to a linear regression model can enable it to capture non-linear patterns.", true
+"True/False: Convex functions have the property that all local minima are also global minima.", true
+"True/False: The maximum likelihood estimation (MLE) principle can be applied to derive linear regression.", true
+"True/False: In logistic regression, the probability of the output being 1 is given by the sigmoid function applied to the linear combination of the input features and weights.", true
+"True/False: Logistic regression can be applied directly to multi-class classification without modifications.", false
+"True/False: In logistic regression, the decision boundary is defined by the points where the dot product between the feature vector and weights is zero.", true
+"True/False: Overfitting occurs when the model performs well on training data but poorly on unseen test data.", true
+"True/False: A high-degree polynomial model is less likely to overfit than a linear model.", false
+"True/False: A development (validation) set is used for evaluating model performance after hyperparameter tuning.", false
+"True/False: In supervised learning, the ultimate goal is to achieve low loss on the training data.", false
+"True/False: Bias in a model refers to its inability to capture patterns due to restrictive assumptions.", true
+"True/False: Variance in a model increases when the model is highly sensitive to small changes in the training dataset.", true
+"True/False: A function is convex if the line segment connecting any two points on the graph of the function lies above the function itself.", true
+"True/False: Regularization techniques help in reducing model overfitting.", true
+"True/False: L2 regularization penalizes the sum of the absolute values of the model parameters.", false
+"True/False: In MLE, the goal is to find the parameters that make the observed data most probable under the model.", true
+"True/False: When using logistic regression, the sigmoid function output is bounded between -1 and 1.", false
+"True/False: k-nearest neighbors is an example of a non-parametric method.", true
+"True/False: Support vector machines (SVM) are based on finding the hyperplane that minimizes classification error.", false
+"True/False: The "kernel trick" is used in SVMs to enable learning in high-dimensional spaces without explicitly computing those spaces.", true
+"True/False: The softmax function can be used in binary classification problems.", true
+"True/False: A higher learning rate in gradient descent always leads to faster and more accurate convergence.", false
+"True/False: In linear regression, adding more features always improves model performance.", false
+"True/False: Cross-entropy is commonly used as the loss function in multi-class classification problems.", true
+"True/False: In logistic regression, a positive dot product between weights and features indicates a positive class prediction.", true
+"True/False: Overfitting in a model can be detected by comparing training and test losses.", true
+"True/False: The normal equation provides a closed-form solution for optimizing linear regression without needing gradient descent.", true

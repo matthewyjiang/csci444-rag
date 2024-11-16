@@ -8,4 +8,5 @@ pytest
 boto3
 langchain-community
 torch
-
+scikit-learn
+pandas
