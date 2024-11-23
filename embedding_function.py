@@ -119,6 +119,8 @@ class EmbeddingFunction(Embeddings):
         self.pca = joblib.load(pca_path)
         print(f"Models loaded from '{vectorizer_path}' and '{pca_path}'.")
 
+# embedding_function.py
+
 def initialize_embedding_function(documents: List[str]) -> EmbeddingFunction:
     """
     Initializes and fits the embedding function on the provided documents.
@@ -129,7 +131,9 @@ def initialize_embedding_function(documents: List[str]) -> EmbeddingFunction:
     Returns:
     - embedding_function (EmbeddingFunction): Fitted EmbeddingFunction instance.
     """
-    embedding = EmbeddingFunction()
+    # Set embedding_dim to the minimum of 128 and the number of documents
+    embedding_dim = min(128, len(documents))
+    embedding = EmbeddingFunction(embedding_dim=embedding_dim)
     print(f"Total documents/pages to embed: {len(documents)}")
     
     # Fit the embedding function
@@ -139,7 +143,7 @@ def initialize_embedding_function(documents: List[str]) -> EmbeddingFunction:
     embedding.save_models()
     
     return embedding
-
+    
 def load_embedding_function() -> EmbeddingFunction:
     """
     Loads the embedding function by loading saved TF-IDF vectorizer and PCA model.
