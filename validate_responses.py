@@ -4,6 +4,7 @@ from langchain_chroma import Chroma
 from langchain.prompts import ChatPromptTemplate
 from langchain_ollama import OllamaLLM
 from query_data import query_rag
+from validate_responses_openai import validate_response as validate_response_openai
 import logging
 
 logger = logging.getLogger(__name__)
@@ -18,7 +19,7 @@ You are a system designed to verify the accuracy of answers. Compare the RAG ans
 - RAG Answer: {RAG_ANSWER}
 - Ground Truth: {GROUND_TRUTH}
 
-The ground truth is either "true" or "false". If the RAG answer aligns with the ground truth, respond with "TRUE". If it does not align, respond with "FALSE". 
+If the RAG answer aligns with the ground truth, respond with "TRUE". If it does not align, respond with "FALSE". 
 
 Respond with only one word: TRUE or FALSE.
 """
@@ -50,8 +51,8 @@ def main():
         logger.info("querying RAG + model")
         response, sources = query_rag(question, print_output=False)
         logger.info("querying validation model")
-        result = validate_response(answer, response).strip()
-        # log question, response, answer, correctness
+        result = validate_response_openai(answer, response.strip()).strip()
+
         
         if result == "TRUE":
             result_bool = True

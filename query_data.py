@@ -13,7 +13,7 @@ Answer the question based only on the following context:
 
 ---
 
-Answer the question based on the above context, placing "True" or "False" at the beginning of the response: {question}
+Answer the question consisely based on the above context: {question}
 """
 
 
