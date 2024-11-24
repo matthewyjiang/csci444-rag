@@ -12,22 +12,37 @@ CHROMA_PATH = "chroma"
 DATA_PATH = "data"
 
 def main():
-    # Check if the database should be cleared (using the --reset flag).
-    parser = argparse.ArgumentParser()
+    # Set up argument parser
+    parser = argparse.ArgumentParser(description="Populate the Chroma vector database using TF-IDF weighted GloVe embeddings.")
     parser.add_argument("--reset", action="store_true", help="Reset the database.")
+    parser.add_argument(
+        "--embedding_path",
+        type=str,
+        required=True,
+        help="Path to the pre-trained word vectors file (e.g., word2vec).",
+    )
     args = parser.parse_args()
+
+    # Reset the database if requested
     if args.reset:
         print("✅ Clearing Database")
         clear_database()
 
-    # Create (or update) the data store.
+    # Load documents from the specified directory
     documents = load_documents()
     all_texts = [doc.page_content for doc in documents]
-    
-    # Initialize embedding function with all_texts (only during population)
-    embedding_function = initialize_embedding_function(all_texts)
 
+    # Initialize embedding function with the specified embedding_path and optional vectorizer_path
+    embedding_function = initialize_embedding_function(
+        documents=all_texts,
+        embedding_path=args.embedding_path,
+        tf_idf_path=None,
+    )
+
+    # Split documents into chunks
     chunks = split_documents(documents)
+
+    # Add chunks to Chroma vector database
     add_to_chroma(chunks, embedding_function)
 
 def load_documents():
@@ -89,7 +104,7 @@ def calculate_chunk_ids(chunks):
         chunk_id = f"{current_page_id}:{current_chunk_index}"
         last_page_id = current_page_id
 
-        # Add it to the page meta-data.
+        # Add it to the page metadata.
         chunk.metadata["id"] = chunk_id
 
     return chunks

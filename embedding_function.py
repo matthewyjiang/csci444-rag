@@ -1,176 +1,246 @@
 # embedding_function.py
 
 import os
-import joblib
-from sklearn.decomposition import PCA
+import numpy as np
+import nltk
+from typing import List, Dict
+from langchain.embeddings.base import Embeddings
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.preprocessing import normalize
-from typing import List
-from langchain.embeddings.base import Embeddings  # Ensure LangChain is installed
+import joblib
+from gensim.models import KeyedVectors
 
-# Define paths for saving models and config
-VECTORIZER_PATH = "tfidf_vectorizer.joblib"
-PCA_PATH = "pca_model.joblib"
-
+# Ensure the punkt tokenizer is downloaded
+nltk.download('punkt')
+default_embedding_path: str = "word_vectors.joblib"
+default_tf_idf_path: str = "tfidf_vectorizer.joblib"
 class EmbeddingFunction(Embeddings):
-    def __init__(self, max_features=256, embedding_dim=128):
+    def __init__(self, embedding_path: str, tf_idf_path: str = None):
         """
-        Initializes the EmbeddingFunction with TF-IDF Vectorizer and PCA.
-    
+        Initializes the EmbeddingFunction by loading pre-trained word vectors
+        and setting up the TF-IDF vectorizer.
+
         Parameters:
-        - max_features (int): Maximum number of features for TF-IDF.
-        - embedding_dim (int): Number of dimensions for PCA.
+        - embedding_path (str): Path to the pre-trained Word2Vec word vectors file.
+        - tf_idf_path (str, optional): Path to load a pre-fitted TF-IDF vectorizer.
         """
-        self.max_features = max_features
-        self.embedding_dim = embedding_dim
-        self.vectorizer = TfidfVectorizer(max_features=self.max_features)
-        self.pca = PCA(n_components=self.embedding_dim)
-    
-    def fit(self, documents: List[str]):
+        self.embedding_dim = 300  # Assuming Word2Vec 300d
+        self.word_vectors = self.load_word_vectors(embedding_path)
+        print(f"✅ Loaded word vectors from '{embedding_path}'. Embedding dimension: {self.embedding_dim}")
+
+        if tf_idf_path and os.path.exists(tf_idf_path):
+            self.vectorizer = self.load_vectorizer(tf_idf_path)
+            print(f"✅ Loaded TF-IDF vectorizer from '{tf_idf_path}'.")
+        else:
+            self.vectorizer = TfidfVectorizer()
+            print("🛠️ Initialized a new TF-IDF vectorizer.")
+
+    def load_word_vectors(self, filepath: str) -> KeyedVectors:
         """
-        Fits the TF-IDF vectorizer and PCA on the provided documents.
-    
+        Loads Word2Vec word vectors using gensim's KeyedVectors.
+
         Parameters:
-        - documents (list of str): List of text documents.
-        """
-        # Fit TF-IDF Vectorizer
-        tfidf_matrix = self.vectorizer.fit_transform(documents)
-        print("TF-IDF Vectorization complete.")
-        
-        # Convert sparse matrix to dense
-        tfidf_dense = tfidf_matrix.toarray()
-        
-        # Normalize TF-IDF vectors
-        tfidf_normalized = normalize(tfidf_dense)
-        
-        # Fit PCA on normalized TF-IDF vectors
-        self.pca.fit(tfidf_normalized)
-        print("PCA fitting complete.")
-    
-    def transform(self, documents: List[str]) -> 'numpy.ndarray':
-        """
-        Transforms documents into embedding vectors using fitted TF-IDF and PCA.
-    
-        Parameters:
-        - documents (list of str): List of text documents.
-    
+        - filepath (str): Path to the Word2Vec word vectors file.
+
         Returns:
-        - embeddings (numpy.ndarray): Array of embedding vectors.
+        - KeyedVectors: Gensim's KeyedVectors instance.
         """
-        # Transform documents using TF-IDF Vectorizer
-        tfidf_matrix = self.vectorizer.transform(documents)
-        tfidf_dense = tfidf_matrix.toarray()
-        tfidf_normalized = normalize(tfidf_dense)
-        
-        # Transform using PCA
-        embeddings = self.pca.transform(tfidf_normalized)
-        return embeddings
-    
+        print("🔄 Loading Word2Vec word vectors using gensim...")
+        try:
+            word_vectors = KeyedVectors.load_word2vec_format(filepath, binary=False)
+            print("✅ Word2Vec word vectors loaded successfully.")
+            return word_vectors
+        except Exception as e:
+            print(f"❌ Failed to load word vectors using gensim: {e}")
+            raise
+
+    def load_vectorizer(self, filepath: str) -> TfidfVectorizer:
+        """
+        Loads a pre-fitted TF-IDF vectorizer from disk.
+
+        Parameters:
+        - filepath (str): Path to the saved TF-IDF vectorizer.
+
+        Returns:
+        - TfidfVectorizer: Loaded TF-IDF vectorizer.
+        """
+        print(f"🔄 Loading TF-IDF vectorizer from '{filepath}'...")
+        return joblib.load(filepath)
+
+    def fit_vectorizer(self, documents: List[str]):
+        """
+        Fits the TF-IDF vectorizer on the provided documents.
+
+        Parameters:
+        - documents (List[str]): List of document texts.
+        """
+        print("🔄 Fitting TF-IDF vectorizer on the documents...")
+        self.vectorizer.fit(documents)
+        print("✅ TF-IDF vectorizer fitted successfully.")
+
     def embed_documents(self, texts: List[str]) -> List[List[float]]:
         """
-        Embeds multiple documents.
-        
+        Embeds multiple documents using TF-IDF weighted averaging of word vectors.
+
         Parameters:
         - texts (List[str]): List of document texts.
-        
+
         Returns:
         - List[List[float]]: List of embedding vectors.
         """
-        embeddings = self.transform(texts)
-        return embeddings.tolist()
-    
+        embeddings = []
+        for text in texts:
+            embedding = self.embed_sentence(text)
+            embeddings.append(embedding)
+        return embeddings
+
     def embed_query(self, text: str) -> List[float]:
         """
-        Embeds a single query.
-        
+        Embeds a single query using TF-IDF weighted averaging of word vectors.
+
         Parameters:
         - text (str): The query text.
-        
+
         Returns:
         - List[float]: Embedding vector.
         """
-        embedding = self.transform([text])
-        return embedding[0].tolist()
-    
-    def save_models(self, vectorizer_path=VECTORIZER_PATH, pca_path=PCA_PATH):
-        """
-        Saves the fitted TF-IDF vectorizer and PCA model to disk.
-    
-        Parameters:
-        - vectorizer_path (str): File path to save the TF-IDF vectorizer.
-        - pca_path (str): File path to save the PCA model.
-        """
-        joblib.dump(self.vectorizer, vectorizer_path)
-        joblib.dump(self.pca, pca_path)
-        print(f"Models saved to '{vectorizer_path}' and '{pca_path}'.")
-    
-    def load_models(self, vectorizer_path=VECTORIZER_PATH, pca_path=PCA_PATH):
-        """
-        Loads the TF-IDF vectorizer and PCA model from disk.
-    
-        Parameters:
-        - vectorizer_path (str): File path to load the TF-IDF vectorizer.
-        - pca_path (str): File path to load the PCA model.
-        """
-        if not (os.path.exists(vectorizer_path) and os.path.exists(pca_path)):
-            raise FileNotFoundError("Model files not found. Please fit the models first.")
-        
-        self.vectorizer = joblib.load(vectorizer_path)
-        self.pca = joblib.load(pca_path)
-        print(f"Models loaded from '{vectorizer_path}' and '{pca_path}'.")
+        return self.embed_sentence(text)
 
-# embedding_function.py
+    def embed_sentence(self, sentence: str) -> List[float]:
+        """
+        Embeds a sentence by weighted averaging of its word vectors based on TF-IDF scores.
+        """
+        tokens = nltk.word_tokenize(sentence.lower())
+        tfidf_scores = self.vectorizer.transform([sentence]).toarray()[0]
+        feature_names = self.vectorizer.get_feature_names_out()
+        word_to_tfidf = {word: tfidf_scores[idx] for idx, word in enumerate(feature_names)}
 
-def initialize_embedding_function(documents: List[str]) -> EmbeddingFunction:
+        vectors = []
+        weights = []
+        for word in tokens:
+            if word in self.word_vectors and word in word_to_tfidf:
+                vectors.append(self.word_vectors[word])
+                weights.append(word_to_tfidf[word])
+
+        if not vectors:
+            return [0.0] * self.embedding_dim
+
+        vectors = np.array(vectors)
+        weights = np.array(weights).reshape(-1, 1)
+        weighted_vectors = vectors * weights
+        sentence_embedding = np.sum(weighted_vectors, axis=0) / np.sum(weights)
+        return sentence_embedding.tolist()
+
+    def save_models(self, save_embedding_path: str = default_embedding_path, save_tf_idf_path: str = default_tf_idf_path):
+        """
+        Saves the word vectors and TF-IDF vectorizer to disk.
+
+        Parameters:
+        - save_embedding_path (str): File path to save the word vectors.
+        - save_tf_idf_path (str): File path to save the TF-IDF vectorizer.
+        """
+        # Save word vectors
+        joblib.dump(self.word_vectors, save_embedding_path)
+        print(f"✅ Word vectors saved to '{save_embedding_path}'.")
+
+        # Save TF-IDF vectorizer
+        joblib.dump(self.vectorizer, save_tf_idf_path)
+        print(f"✅ TF-IDF vectorizer saved to '{save_tf_idf_path}'.")
+
+    def load_models(self, load_embedding_path: str = default_embedding_path, load_tf_idf_path: str = default_tf_idf_path):
+        """
+        Loads the word vectors and TF-IDF vectorizer from disk.
+
+        Parameters:
+        - load_embedding_path (str): File path to load the word vectors.
+        - load_tf_idf_path (str): File path to load the TF-IDF vectorizer.
+
+        Returns:
+        - None
+        """
+        # Load word vectors
+        if os.path.exists(load_embedding_path):
+            self.word_vectors = joblib.load(load_embedding_path)
+            self.embedding_dim = len(next(iter(self.word_vectors.values())))
+            print(f"✅ Word vectors loaded from '{load_embedding_path}'. Embedding dimension: {self.embedding_dim}")
+        else:
+            raise FileNotFoundError(f"❌ Word vectors file '{load_embedding_path}' not found.")
+
+        # Load TF-IDF vectorizer
+        if os.path.exists(load_tf_idf_path):
+            self.vectorizer = joblib.load(load_tf_idf_path)
+            print(f"✅ TF-IDF vectorizer loaded from '{load_tf_idf_path}'.")
+        else:
+            raise FileNotFoundError(f"❌ TF-IDF vectorizer file '{load_tf_idf_path}' not found.")
+
+
+def initialize_embedding_function(documents: List[str], embedding_path: str, tf_idf_path: str = None) -> EmbeddingFunction:
     """
-    Initializes and fits the embedding function on the provided documents.
-    
+    Initializes the embedding function with the provided documents and word vectors.
+
     Parameters:
-    - documents (list of str): List of text documents.
-    
+    - documents (List[str]): List of text documents.
+    - embedding_path (str): Path to the pre-trained Word2Vec word vectors file.
+    - tf_idf_path (str, optional): Path to a pre-fitted TF-IDF vectorizer.
+
     Returns:
-    - embedding_function (EmbeddingFunction): Fitted EmbeddingFunction instance.
+    - EmbeddingFunction: Initialized EmbeddingFunction instance.
     """
-    # Set embedding_dim to the minimum of 128 and the number of documents
-    embedding_dim = min(128, len(documents))
-    embedding = EmbeddingFunction(embedding_dim=embedding_dim)
-    print(f"Total documents/pages to embed: {len(documents)}")
-    
-    # Fit the embedding function
-    embedding.fit(documents)
-    
-    # Save the models
-    embedding.save_models()
-    
+    embedding = EmbeddingFunction(embedding_path, tf_idf_path)
+
+    if tf_idf_path and os.path.exists(tf_idf_path):
+        # Vectorizer is already loaded
+        pass
+    else:
+        # Fit the vectorizer on the documents
+        embedding.fit_vectorizer(documents)
+        print("✅ TF-IDF vectorizer fitted on the documents.")
+        # Save the fitted TF-IDF vectorizer
+        if tf_idf_path:
+            embedding.save_models(save_tf_idf_path=tf_idf_path)
+        else:
+            embedding.save_models()
+
     return embedding
-    
-def load_embedding_function() -> EmbeddingFunction:
+
+
+def load_embedding_function(embedding_path: str, tf_idf_path: str = default_tf_idf_path) -> EmbeddingFunction:
     """
-    Loads the embedding function by loading saved TF-IDF vectorizer and PCA model.
-    
+    Loads the embedding function by loading pre-trained word vectors and TF-IDF vectorizer.
+
+    Parameters:
+    - embedding_path (str): Path to the pre-trained Word2Vec word vectors file.
+    - tf_idf_path (str): Path to the pre-fitted TF-IDF vectorizer.
+
     Returns:
-    - embedding_function (EmbeddingFunction): Loaded EmbeddingFunction instance.
+    - EmbeddingFunction: Loaded EmbeddingFunction instance.
     """
-    embedding = EmbeddingFunction()
-    embedding.load_models()
+    embedding = EmbeddingFunction(embedding_path, tf_idf_path)
     return embedding
+
 
 if __name__ == "__main__":
     import argparse
-    
-    parser = argparse.ArgumentParser(description="Initialize and fit the embedding function using TF-IDF.")
+    import os
+
+    parser = argparse.ArgumentParser(description="Initialize the embedding function using custom word vectors and TF-IDF weighting.")
     parser.add_argument("--input_dir", type=str, required=True, help="Directory containing the text files (each page as a document).")
-    
+    parser.add_argument("--embedding_path", type=str, required=True, help="Path to the pre-trained Word2Vec word vectors file.")
+    parser.add_argument("--save_embedding_path", type=str, default=default_embedding_path, help="Path to save the word vectors.")
+    parser.add_argument("--save_tf_idf_path", type=str, default=default_tf_idf_path, help="Path to save the TF-IDF vectorizer.")
     args = parser.parse_args()
-    
+
     # Gather all text file paths from the input directory
     input_directory = args.input_dir
-    pdf_text_paths = [os.path.join(input_directory, fname) for fname in os.listdir(input_directory) if fname.endswith('.txt')]
-    
+    pdf_text_paths = [
+        os.path.join(input_directory, fname)
+        for fname in os.listdir(input_directory)
+        if fname.endswith('.txt')
+    ]
+
     if not pdf_text_paths:
-        print("No text files found in the specified directory.")
+        print("❌ No text files found in the specified directory.")
         exit(1)
-    
+
     # Read and collect all document texts
     documents = []
     for path in pdf_text_paths:
@@ -178,7 +248,10 @@ if __name__ == "__main__":
             content = file.read().strip()
             if content:  # Ensure non-empty content
                 documents.append(content)
-    
-    # Initialize and fit the embedding function
-    embedding_func = initialize_embedding_function(documents)
-    print("Embedding function initialized and models saved.")
+
+    # Initialize embedding function
+    embedding_func = initialize_embedding_function(documents, args.embedding_path, args.save_tf_idf_path)
+    print("✅ Embedding function initialized.")
+
+    # Save the models
+    embedding_func.save_models(save_embedding_path=args.save_embedding_path, save_tf_idf_path=args.save_tf_idf_path)
