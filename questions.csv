@@ -1,0 +1,80 @@
+questions,answers
+"What is the primary goal of linear regression?","To predict a real-valued quantity by finding a linear function that maps inputs to outputs."
+"What are the components of the parameter vector in linear regression?","The weight vector and the bias."
+"How is the bias term represented in linear regression?","As a scalar added to the linear combination of weights and features."
+"What is the loss function typically used in linear regression?","The squared loss function."
+"How is the gradient defined in gradient descent?","As the vector of partial derivatives of the loss function with respect to the parameters."
+"What does convexity guarantee in gradient descent?","That all local minima are global minima."
+"What does MLE stand for in machine learning?","Maximum Likelihood Estimation."
+"What does the term f(x; theta) represent in linear regression?","The predicted value based on input x and parameters theta."
+"What is the function of the learning rate in gradient descent?","It controls the step size taken during each iteration of optimization."
+"How is the initial guess for parameters chosen in gradient descent?","It is typically initialized to zero or randomly chosen."
+"What does overfitting mean in machine learning?","When a model performs well on training data but poorly on unseen data."
+"What is one common method to detect overfitting?","Compare training loss with test loss."
+"What is the purpose of a development set in machine learning?","To tune hyperparameters like learning rate or model complexity."
+"What does a test set evaluate in machine learning?","The model's performance on unseen data."
+"How does adding polynomial features affect a linear regression model?","It enables the model to capture non-linear patterns."
+"What is the equation for a linear regression model?","f(x) = w * x + b."
+"What is the role of the gradient in gradient descent?","It identifies the direction to minimize the loss function."
+"What does regularization aim to prevent?","Overfitting."
+"What does L2 regularization penalize?","The sum of the squares of the weights."
+"What is an indicator feature?","A binary feature representing a specific condition or category."
+"What does the sigmoid function output in logistic regression?","A probability value between 0 and 1."
+"How does logistic regression classify data points?","By determining which side of the decision boundary they fall on."
+"What is the name of the function used for multi-class classification probabilities?","Softmax function."
+"What is the loss function used in logistic regression?","The negative log-likelihood."
+"What is the purpose of cross-entropy in classification?","To measure how well the predicted probabilities match the true labels."
+"What are the two key sources of error in machine learning models?","Bias and variance."
+"What is bias in machine learning?","Error due to restrictive assumptions in the model."
+"What is variance in machine learning?","Error due to sensitivity to small fluctuations in the training set."
+"What is the role of the kernel trick in SVMs?","To enable learning in high-dimensional spaces without explicitly computing them."
+"What is the goal of k-means clustering?","To partition data into k clusters where each point belongs to the nearest cluster center."
+"What is a hyperplane in SVMs?","The decision boundary separating different classes."
+"What does PCA stand for in dimensionality reduction?","Principal Component Analysis."
+"What does the term generative classifier mean?","A model that learns the joint probability distribution P(x, y)."
+"What does Naive Bayes assume about features?","That they are conditionally independent given the class."
+"What is the purpose of Laplace smoothing in Naive Bayes?","To handle zero probabilities by adding a small constant to counts."
+"What is a Markov Decision Process (MDP)?","A framework for modeling decision-making where outcomes are partly random and partly under the control of a decision-maker."
+"What does Q-learning aim to compute?","The optimal action-value function for reinforcement learning."
+"What is the exploration-exploitation tradeoff in reinforcement learning?","The balance between trying new actions and optimizing known actions."
+"What is the role of the learning rate in reinforcement learning?","To control how much the Q-values are updated in each step."
+"What does state discretization mean in reinforcement learning?","Breaking down the continuous state space into discrete bins for simpler modeling."
+"What is the goal of deep Q-learning?","To approximate the Q-function using a deep neural network."
+"What is policy gradient used for?","To directly optimize the policy in reinforcement learning."
+"What does softmax regression generalize?","Logistic regression to multi-class classification."
+"What is the decision boundary in logistic regression?","The hyperplane where w * x + b = 0."
+"What is the main difference between generative and discriminative classifiers?","Generative classifiers model P(x, y), while discriminative classifiers model P(y | x)."
+"What is a common test to evaluate convexity of a function?","Check if the second derivative is non-negative."
+"What is the primary use of PCA in machine learning?","To reduce the dimensionality of data while retaining maximum variance."
+"What is a multivariate Gaussian?","A generalization of the Gaussian distribution for multiple variables."
+"What is the Expectation-Maximization (EM) algorithm used for?","To find maximum likelihood estimates for models with latent variables."
+"True/False: In linear regression, the bias term is responsible for shifting the linear function up or down.", true
+"True/False: The loss function used in linear regression is always the squared loss function.", true
+"True/False: Gradient descent is a specific algorithm used only for optimizing linear regression models.", false
+"True/False: Adding polynomial features to a linear regression model can enable it to capture non-linear patterns.", true
+"True/False: Convex functions have the property that all local minima are also global minima.", true
+"True/False: The maximum likelihood estimation (MLE) principle can be applied to derive linear regression.", true
+"True/False: In logistic regression, the probability of the output being 1 is given by the sigmoid function applied to the linear combination of the input features and weights.", true
+"True/False: Logistic regression can be applied directly to multi-class classification without modifications.", false
+"True/False: In logistic regression, the decision boundary is defined by the points where the dot product between the feature vector and weights is zero.", true
+"True/False: Overfitting occurs when the model performs well on training data but poorly on unseen test data.", true
+"True/False: A high-degree polynomial model is less likely to overfit than a linear model.", false
+"True/False: A development (validation) set is used for evaluating model performance after hyperparameter tuning.", false
+"True/False: In supervised learning, the ultimate goal is to achieve low loss on the training data.", false
+"True/False: Bias in a model refers to its inability to capture patterns due to restrictive assumptions.", true
+"True/False: Variance in a model increases when the model is highly sensitive to small changes in the training dataset.", true
+"True/False: A function is convex if the line segment connecting any two points on the graph of the function lies above the function itself.", true
+"True/False: Regularization techniques help in reducing model overfitting.", true
+"True/False: L2 regularization penalizes the sum of the absolute values of the model parameters.", false
+"True/False: In MLE, the goal is to find the parameters that make the observed data most probable under the model.", true
+"True/False: When using logistic regression, the sigmoid function output is bounded between -1 and 1.", false
+"True/False: k-nearest neighbors is an example of a non-parametric method.", true
+"True/False: Support vector machines (SVM) are based on finding the hyperplane that minimizes classification error.", false
+"True/False: The "kernel trick" is used in SVMs to enable learning in high-dimensional spaces without explicitly computing those spaces.", true
+"True/False: The softmax function can be used in binary classification problems.", true
+"True/False: A higher learning rate in gradient descent always leads to faster and more accurate convergence.", false
+"True/False: In linear regression, adding more features always improves model performance.", false
+"True/False: Cross-entropy is commonly used as the loss function in multi-class classification problems.", true
+"True/False: In logistic regression, a positive dot product between weights and features indicates a positive class prediction.", true
+"True/False: Overfitting in a model can be detected by comparing training and test losses.", true
+"True/False: The normal equation provides a closed-form solution for optimizing linear regression without needing gradient descent.", true

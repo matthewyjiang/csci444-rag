@@ -2,7 +2,11 @@ pypdf
 langchain
 langchain-chroma
 langchain-ollama
+langchain-community
 chromadb # Vector storage
 pytest
 boto3
 langchain-community
+torch
+scikit-learn
+pandas
