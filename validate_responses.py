@@ -6,6 +6,7 @@ from langchain_ollama import OllamaLLM
 from query_data import query_rag
 from validate_responses_openai import validate_response as validate_response_openai
 import logging
+import glob
 
 logger = logging.getLogger(__name__)
 
@@ -34,51 +35,57 @@ def main():
     logger.setLevel(logging.INFO)
     
     parser = argparse.ArgumentParser()
-    parser.add_argument("file", type=str, help="The file containing the answers and responses.")
+    parser.add_argument("dir", type=str, help="The directory containing the answers and responses.")
     args = parser.parse_args()
-    file_path = args.file
-    df = pd.read_csv(file_path)
+    file_dir = args.dir
+    csv_files = glob.glob(file_dir + "/*.csv")
+    dfs = []
+    for file in csv_files:
+        dfs.append((file, pd.read_csv(file)))
     
     count_matching = 0
     count_total = 0
     
     
     
-    for index, row in df.iterrows():
-        question = row['questions']
-        answer = row['answers']
-        
-        logger.info("querying RAG + model")
-        response, sources = query_rag(question, print_output=False)
-        logger.info("querying validation model")
-        result = validate_response_openai(answer, response.strip()).strip()
-
-        
-        if result == "TRUE":
-            result_bool = True
-            count_matching += 1
-        elif result == "FALSE":
-            result_bool = False
-        else:
-            result_bool = None
-            count_total -= 1
+    for file, df in dfs:
+        logger.info(f"Validating responses in {file}")
+        print (f"Validating responses in {file}")
+        for index, row in df.iterrows():
+            question = row['questions']
+            answer = row['answers']
             
-        count_total += 1
+            logger.info("querying RAG + model")
+            response, sources = query_rag(question, print_output=False)
+            logger.info("querying validation model")
+            result = validate_response_openai(answer, response.strip()).strip()
+
+            
+            if result == "TRUE":
+                result_bool = True
+                count_matching += 1
+            elif result == "FALSE":
+                result_bool = False
+            else:
+                result_bool = None
+                count_total -= 1
+                
+            count_total += 1
+            
+            logstring = f"""
+            QUESTION INDEX: {index}
+            QUESTION: {question}
+            EXPECTED: {answer}
+            RESPONSE: "{response}"
+            SOURCES: {sources}
+            MATCHES: {result_bool}
+            ============================
+            """
+            logger.info(logstring)
+            
+        accuracy = count_matching / count_total
         
-        logstring = f"""
-        QUESTION INDEX: {index}
-        QUESTION: {question}
-        EXPECTED: {answer}
-        RESPONSE: "{response}"
-        SOURCES: {sources}
-        MATCHES: {result_bool}
-        ============================
-        """
-        logger.info(logstring)
-        
-    accuracy = count_matching / count_total
-    
-    print(f"Accuracy: {accuracy}")
+        print(f"Accuracy: {accuracy}")
 
 
 

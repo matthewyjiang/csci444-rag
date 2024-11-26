@@ -1,0 +1,77 @@
+questions,answers
+"True/False: natural language refers to formal programming languages",false
+"True/False: machine translation is a notable success story in nlp",true
+"True/False: text classification requires dividing the dataset into training, validation, and testing sets",true
+"True/False: naive bayes assumes features are independent given the class label",true
+"True/False: tokenization is the process of breaking text into words or subwords",true
+"True/False: zipf's law predicts that the most frequent word is twice as common as the second-most frequent word",true
+"True/False: smoothing in naive bayes prevents probabilities from becoming zero",true
+"True/False: laplace smoothing is an example of bayesian prior estimation",true
+"True/False: text classification evaluation metrics include precision and recall",true
+"True/False: perplexity measures how well a language model predicts a sequence",true
+"True/False: naive bayes is a generative model for classification tasks",true
+"True/False: the training set is used to fine-tune the final model for evaluation",false
+"True/False: tokenization can include breaking text into words or subwords",true
+"True/False: word embeddings represent words as dense vectors in a continuous space",true
+"True/False: zipf's law suggests most words in natural language occur frequently",false
+"True/False: in language models, unigram probabilities depend on the previous word",false
+"True/False: bigram models estimate probabilities based on one preceding word",true
+"True/False: smoothing distributes a small amount of probability mass to unseen events",true
+"True/False: log-likelihood is commonly used to avoid floating-point underflow",true
+"True/False: n-gram models can suffer from sparsity as n increases",true
+"True/False: language models can generate text by sampling from token probabilities",true
+"True/False: in n-gram models, larger n provides more context but increases data sparsity",true
+"True/False: the softmax function maps logits into a probability distribution",true
+"True/False: cross-entropy loss penalizes incorrect predictions in classification tasks",true
+"True/False: naive bayes requires that features be dependent on one another",false
+"True/False: laplace smoothing ensures no zero probabilities but may overestimate rare events",true
+"True/False: f-measure is the harmonic mean of precision and recall",true
+"True/False: a unigram model assigns probabilities to sequences based solely on token frequencies",true
+"True/False: tokenization determines what a model can represent in text classification",true
+"True/False: word embeddings can be learned using neural network models",true
+"True/False: the goal of nlp is to enable computers to process formal languages effectively",false
+"True/False: machine translation evaluates gender bias by examining translation outputs",true
+"True/False: text-to-image systems always provide unbiased representations",false
+"True/False: robot navigation is an example of an nlp application involving multimodal inputs",true
+"True/False: naive bayes classifiers are linear classifiers under certain conditions",true
+"True/False: accuracy measures the proportion of correct predictions out of all predictions",true
+"True/False: in text classification, a validation set is used to adjust model hyperparameters",true
+"True/False: in natural language, word frequency often follows a normal distribution",false
+"True/False: tokenization can involve creating a catch-all unknown token",true
+"True/False: part-of-speech tagging can provide syntactic structure information for nlp tasks",true
+"True/False: f-measure combines precision and recall to assess model performance",true
+"True/False: conditional independence is a key assumption in naive bayes",true
+"True/False: text summarization is a common application of nlp",true
+"True/False: n-gram models represent the likelihood of a token given its preceding tokens",true
+"True/False: cross-entropy loss approaches zero as the correct class score increases",true
+"True/False: neural networks require labeled data to learn word embeddings",false
+"True/False: perplexity measures the average surprise of a language model on unseen data",true
+"True/False: an optimal language model minimizes perplexity on a given corpus",true
+"True/False: n-gram models store explicit probabilities for all possible token combinations",true
+"True/False: sequence-to-sequence models can handle both text generation and classification tasks",true
+"True/False: a token's meaning can be represented by its co-occurrence patterns with other tokens",true
+"True/False: word embeddings encode syntactic and semantic relationships between words",true
+"True/False: language models predict the likelihood of sequences of text",true
+"True/False: smoothing is unnecessary for n-gram models with large datasets",false
+"True/False: the bag-of-words model considers the order of words in a sequence",false
+"True/False: supervised methods have laid the groundwork for unsupervised approaches in nlp",true
+"True/False: text classification requires numeric features as input for models",true
+"True/False: softmax normalization ensures that output probabilities sum to one",true
+"True/False: vanishing probabilities occur in naive bayes models with no smoothing applied",true
+"True/False: a bigram model assumes token probabilities depend only on the immediately preceding token",true
+"True/False: tokenization is a lossy process that determines the granularity of input features",true
+"True/False: cross-entropy loss is used to evaluate binary classification tasks",true
+"True/False: conditional independence in naive bayes simplifies probability computations",true
+"True/False: tokenization choices directly affect model expressiveness in nlp",true
+"True/False: perplexity is inversely proportional to model accuracy in language modeling tasks",true
+"True/False: language modeling involves estimating p(w1, w2,..., wn)",true
+"True/False: softmax activation is used to convert raw scores into probabilities",true
+"True/False: in text classification, unseen tokens pose challenges to naive bayes models",true
+"True/False: word embeddings use dense representations to reduce data sparsity",true
+"True/False: a validation set simulates the test set to adjust model hyperparameters",true
+"True/False: nlp tasks such as text generation rely on sequence-to-sequence models",true
+"True/False: zipf's law describes the inverse relationship between word rank and frequency",true
+"True/False: f-measure is a weighted average of precision and recall",true
+"True/False: naive bayes estimates p(y|x) using bayes' rule",true
+"True/False: a large vocabulary increases sparsity in n-gram models",true
+"True/False: machine translation is an example of a generative nlp task",true
