@@ -1,132 +1,184 @@
-# get_embedding_function.py
-import torch
-import torch.nn as nn
-from sklearn.decomposition import PCA
-from sklearn.feature_extraction.text import CountVectorizer
-import joblib
+# embedding_function.py
+
 import os
-import json
+import joblib
+from sklearn.decomposition import PCA
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.preprocessing import normalize
+from typing import List
+from langchain.embeddings.base import Embeddings  # Ensure LangChain is installed
 
 # Define paths for saving models and config
-VECTORIZER_PATH = "vectorizer.joblib"
-PCA_PATH = "pca.joblib"
-EMBEDDING_MODEL_PATH = "embedding_model.pth"
-CONFIG_PATH = "embedding_config.json"
+VECTORIZER_PATH = "tfidf_vectorizer.joblib"
+PCA_PATH = "pca_model.joblib"
 
-class SimpleEmbeddingModel(nn.Module):
-    def __init__(self, input_dim, embedding_dim):
-        super(SimpleEmbeddingModel, self).__init__()
-        self.embedding_layer = nn.Linear(input_dim, embedding_dim)
-
-    def forward(self, x):
-        return self.embedding_layer(x)
-
-class EmbeddingWrapper:
-    def __init__(self, input_dim, embedding_dim):
-        self.input_dim = input_dim
+class EmbeddingFunction(Embeddings):
+    def __init__(self, max_features=256, embedding_dim=128):
+        """
+        Initializes the EmbeddingFunction with TF-IDF Vectorizer and PCA.
+    
+        Parameters:
+        - max_features (int): Maximum number of features for TF-IDF.
+        - embedding_dim (int): Number of dimensions for PCA.
+        """
+        self.max_features = max_features
         self.embedding_dim = embedding_dim
-        self.model = SimpleEmbeddingModel(input_dim, embedding_dim)
-        self.pca = PCA(n_components=embedding_dim)
-        self.vectorizer = CountVectorizer(max_features=input_dim)  # Limit vocabulary size
-
-    def fit_pca(self, embeddings):
-        self.pca.fit(embeddings)
-
-    def reduce_dimensionality(self, embeddings):
-        return self.pca.transform(embeddings)
-
-    def embed_query(self, query):
-        query_vector = self.vectorizer.transform([query]).toarray()
-        query_tensor = torch.tensor(query_vector, dtype=torch.float32)
-        with torch.no_grad():
-            embeddings = self.model(query_tensor).numpy()
-        reduced_embeddings = self.reduce_dimensionality(embeddings)
-        return reduced_embeddings[0].tolist()  # Convert to list
-
-    def embed_documents(self, docs):
-        # Transform documents to vectors
-        docs_vector = self.vectorizer.transform(docs).toarray()
-        docs_tensor = torch.tensor(docs_vector, dtype=torch.float32)
+        self.vectorizer = TfidfVectorizer(max_features=self.max_features)
+        self.pca = PCA(n_components=self.embedding_dim)
+    
+    def fit(self, documents: List[str]):
+        """
+        Fits the TF-IDF vectorizer and PCA on the provided documents.
+    
+        Parameters:
+        - documents (list of str): List of text documents.
+        """
+        # Fit TF-IDF Vectorizer
+        tfidf_matrix = self.vectorizer.fit_transform(documents)
+        print("TF-IDF Vectorization complete.")
         
-        # Pass through the embedding model
-        with torch.no_grad():
-            embeddings = self.model(docs_tensor).numpy()
+        # Convert sparse matrix to dense
+        tfidf_dense = tfidf_matrix.toarray()
         
-        # Reduce dimensionality using PCA
-        reduced_embeddings = self.reduce_dimensionality(embeddings)
+        # Normalize TF-IDF vectors
+        tfidf_normalized = normalize(tfidf_dense)
         
-        return reduced_embeddings.tolist()  # Convert to list
-
-    def save(self):
-        # Save Vectorizer
-        joblib.dump(self.vectorizer, VECTORIZER_PATH)
-        # Save PCA
-        joblib.dump(self.pca, PCA_PATH)
-        # Save Embedding Model
-        torch.save(self.model.state_dict(), EMBEDDING_MODEL_PATH)
-        # Save configuration
-        config = {
-            "input_dim": self.input_dim,
-            "embedding_dim": self.embedding_dim
-        }
-        with open(CONFIG_PATH, "w") as f:
-            json.dump(config, f)
-
-    def load(self):
-        if not (os.path.exists(VECTORIZER_PATH) and os.path.exists(PCA_PATH) and os.path.exists(EMBEDDING_MODEL_PATH) and os.path.exists(CONFIG_PATH)):
-            raise FileNotFoundError("Embedding components not found. Please initialize them first.")
+        # Fit PCA on normalized TF-IDF vectors
+        self.pca.fit(tfidf_normalized)
+        print("PCA fitting complete.")
+    
+    def transform(self, documents: List[str]) -> 'numpy.ndarray':
+        """
+        Transforms documents into embedding vectors using fitted TF-IDF and PCA.
+    
+        Parameters:
+        - documents (list of str): List of text documents.
+    
+        Returns:
+        - embeddings (numpy.ndarray): Array of embedding vectors.
+        """
+        # Transform documents using TF-IDF Vectorizer
+        tfidf_matrix = self.vectorizer.transform(documents)
+        tfidf_dense = tfidf_matrix.toarray()
+        tfidf_normalized = normalize(tfidf_dense)
         
-        # Load configuration
-        with open(CONFIG_PATH, "r") as f:
-            config = json.load(f)
-        self.input_dim = config["input_dim"]
-        self.embedding_dim = config["embedding_dim"]
+        # Transform using PCA
+        embeddings = self.pca.transform(tfidf_normalized)
+        return embeddings
+    
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        """
+        Embeds multiple documents.
         
-        # Initialize components
-        self.vectorizer = joblib.load(VECTORIZER_PATH)
-        self.pca = joblib.load(PCA_PATH)
-        self.model = SimpleEmbeddingModel(self.input_dim, self.embedding_dim)
-        self.model.load_state_dict(torch.load(EMBEDDING_MODEL_PATH, weights_only=True))
-        self.model.eval()
+        Parameters:
+        - texts (List[str]): List of document texts.
+        
+        Returns:
+        - List[List[float]]: List of embedding vectors.
+        """
+        embeddings = self.transform(texts)
+        return embeddings.tolist()
+    
+    def embed_query(self, text: str) -> List[float]:
+        """
+        Embeds a single query.
+        
+        Parameters:
+        - text (str): The query text.
+        
+        Returns:
+        - List[float]: Embedding vector.
+        """
+        embedding = self.transform([text])
+        return embedding[0].tolist()
+    
+    def save_models(self, vectorizer_path=VECTORIZER_PATH, pca_path=PCA_PATH):
+        """
+        Saves the fitted TF-IDF vectorizer and PCA model to disk.
+    
+        Parameters:
+        - vectorizer_path (str): File path to save the TF-IDF vectorizer.
+        - pca_path (str): File path to save the PCA model.
+        """
+        joblib.dump(self.vectorizer, vectorizer_path)
+        joblib.dump(self.pca, pca_path)
+        print(f"Models saved to '{vectorizer_path}' and '{pca_path}'.")
+    
+    def load_models(self, vectorizer_path=VECTORIZER_PATH, pca_path=PCA_PATH):
+        """
+        Loads the TF-IDF vectorizer and PCA model from disk.
+    
+        Parameters:
+        - vectorizer_path (str): File path to load the TF-IDF vectorizer.
+        - pca_path (str): File path to load the PCA model.
+        """
+        if not (os.path.exists(vectorizer_path) and os.path.exists(pca_path)):
+            raise FileNotFoundError("Model files not found. Please fit the models first.")
+        
+        self.vectorizer = joblib.load(vectorizer_path)
+        self.pca = joblib.load(pca_path)
+        print(f"Models loaded from '{vectorizer_path}' and '{pca_path}'.")
 
-def initialize_embedding_function(all_documents):
-    input_dim = 256  # Power of 2s
-    embedding_dim_default = 256
+# embedding_function.py
 
-    # Initialize vectorizer and fit
-    vectorizer = CountVectorizer(max_features=input_dim)
-    vectorizer.fit(all_documents)
+def initialize_embedding_function(documents: List[str]) -> EmbeddingFunction:
+    """
+    Initializes and fits the embedding function on the provided documents.
+    
+    Parameters:
+    - documents (list of str): List of text documents.
+    
+    Returns:
+    - embedding_function (EmbeddingFunction): Fitted EmbeddingFunction instance.
+    """
+    # Set embedding_dim to the minimum of 128 and the number of documents
+    embedding_dim = min(128, len(documents))
+    embedding = EmbeddingFunction(embedding_dim=embedding_dim)
+    print(f"Total documents/pages to embed: {len(documents)}")
+    
+    # Fit the embedding function
+    embedding.fit(documents)
+    
+    # Save the models
+    embedding.save_models()
+    
+    return embedding
+    
+def load_embedding_function() -> EmbeddingFunction:
+    """
+    Loads the embedding function by loading saved TF-IDF vectorizer and PCA model.
+    
+    Returns:
+    - embedding_function (EmbeddingFunction): Loaded EmbeddingFunction instance.
+    """
+    embedding = EmbeddingFunction()
+    embedding.load_models()
+    return embedding
 
-    n_features = len(vectorizer.get_feature_names_out())
-    n_samples = len(all_documents)
-    embedding_dim = min(embedding_dim_default, n_features, n_samples)
-
-    if embedding_dim < embedding_dim_default:
-        print(f"✅ Embedding dimension reduced to {embedding_dim} due to data size constraints.")
-
-    # Initialize EmbeddingWrapper with adjusted embedding_dim
-    wrapper = EmbeddingWrapper(input_dim, embedding_dim)
-    wrapper.vectorizer = vectorizer
-
-    # Initialize embedding model with the correct dimensions
-    wrapper.model = SimpleEmbeddingModel(input_dim, embedding_dim)
-    wrapper.model.eval()  # Set to evaluation mode
-
-    # Transform documents and embed
-    all_vectorized_data = wrapper.vectorizer.transform(all_documents).toarray()
-    all_tensor = torch.tensor(all_vectorized_data, dtype=torch.float32)
-    with torch.no_grad():
-        all_embeddings = wrapper.model(all_tensor).numpy()
-
-    # Fit PCA on the embeddings
-    wrapper.fit_pca(all_embeddings)
-
-    # Save the embedding components
-    wrapper.save()
-
-    return wrapper
-
-def load_embedding_function():
-    wrapper = EmbeddingWrapper(input_dim=256, embedding_dim=256)  # Placeholder values; will be overwritten by loaded config
-    wrapper.load()  # This sets the correct input_dim and embedding_dim
-    return wrapper
+if __name__ == "__main__":
+    import argparse
+    
+    parser = argparse.ArgumentParser(description="Initialize and fit the embedding function using TF-IDF.")
+    parser.add_argument("--input_dir", type=str, required=True, help="Directory containing the text files (each page as a document).")
+    
+    args = parser.parse_args()
+    
+    # Gather all text file paths from the input directory
+    input_directory = args.input_dir
+    pdf_text_paths = [os.path.join(input_directory, fname) for fname in os.listdir(input_directory) if fname.endswith('.txt')]
+    
+    if not pdf_text_paths:
+        print("No text files found in the specified directory.")
+        exit(1)
+    
+    # Read and collect all document texts
+    documents = []
+    for path in pdf_text_paths:
+        with open(path, 'r', encoding='utf-8') as file:
+            content = file.read().strip()
+            if content:  # Ensure non-empty content
+                documents.append(content)
+    
+    # Initialize and fit the embedding function
+    embedding_func = initialize_embedding_function(documents)
+    print("Embedding function initialized and models saved.")
