@@ -7,6 +7,7 @@ from langchain.vectorstores.chroma import Chroma
 from langchain.prompts import ChatPromptTemplate
 from langchain.schema.document import Document
 from groq import Groq  # Ensure Groq is correctly imported
+from langchain_ollama import OllamaLLM
 
 from embedding_function import load_embedding_function
 
@@ -85,6 +86,23 @@ def process_query(db: Chroma, query_text: str):
 
     formatted_response = f"\n\n&&&Response: {response_text}\n\nSources: {sources}"
     print("📝 Formatted Response:\n", formatted_response)
+    
+def query_rag(db: Chroma, query_text: str):
+    # Search the DB.
+    results = db.similarity_search_with_score(query_text, k=5)
+    # print (results)
+
+    context_text = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
+    # print(context_text)
+    prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
+    prompt = prompt_template.format(context=context_text, question=query_text)
+    # print(prompt)
+    model = OllamaLLM(model="llama3.2")
+    response_text = model.invoke(prompt)
+
+    sources = [doc.metadata.get("id", None) for doc, _score in results]
+
+    return response_text, sources
 
 def main():
     db = initialize()
