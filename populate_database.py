@@ -7,6 +7,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.schema.document import Document
 from embedding_function import initialize_embedding_function
 from langchain.vectorstores.chroma import Chroma
+from embedding_function import load_embedding_function
 
 CHROMA_PATH = "chroma"
 DATA_PATH = "data"
@@ -15,6 +16,7 @@ def main():
     # Check if the database should be cleared (using the --reset flag).
     parser = argparse.ArgumentParser()
     parser.add_argument("--reset", action="store_true", help="Reset the database.")
+    parser.add_argument("emb_id", type=str, help="The embedding ID.")
     args = parser.parse_args()
     if args.reset:
         print("✅ Clearing Database")
@@ -23,11 +25,17 @@ def main():
     # Create (or update) the data store.
     documents = load_documents()
     all_texts = [doc.page_content for doc in documents]
-    
-    # Initialize embedding function with all_texts (only during population)
-    embedding_function = initialize_embedding_function(all_texts)
 
     chunks = split_documents(documents)
+    
+    if args.emb_id == "tfidf":
+        # Initialize embedding function with all_texts (only during population)
+        embedding_function = initialize_embedding_function(all_texts)
+        print ("initialized tfidf")
+    elif args.emb_id == "nomic":
+        embedding_function = load_embedding_function()
+        print ("loaded nomic")
+        
     add_to_chroma(chunks, embedding_function)
 
 def load_documents():
@@ -67,6 +75,7 @@ def add_to_chroma(chunks, embedding_function):
         db.persist()
     else:
         print("✅ No new documents to add")
+
 
 def calculate_chunk_ids(chunks):
     # This will create IDs like "data/monopoly.pdf:6:2"

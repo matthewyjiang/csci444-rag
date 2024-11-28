@@ -6,6 +6,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 import joblib
 import os
 import json
+from langchain_community.embeddings.ollama import OllamaEmbeddings
 
 # Define paths for saving models and config
 VECTORIZER_PATH = "vectorizer.joblib"
@@ -129,4 +130,5 @@ def initialize_embedding_function(all_documents):
 def load_embedding_function():
     wrapper = EmbeddingWrapper(input_dim=256, embedding_dim=256)  # Placeholder values; will be overwritten by loaded config
     wrapper.load()  # This sets the correct input_dim and embedding_dim
+    # wrapper = OllamaEmbeddings(model="nomic-embed-text")
     return wrapper

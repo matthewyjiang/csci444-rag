@@ -7,7 +7,7 @@ from embedding_function import load_embedding_function
 
 CHROMA_PATH = "chroma"
 PROMPT_TEMPLATE = """
-Answer the question based only on the following context:
+Answer the question based only on the following context/conceptual examples:
 
 {context}
 
@@ -33,12 +33,14 @@ def query_rag(query_text: str, print_output=True):
 
     # Search the DB.
     results = db.similarity_search_with_score(query_text, k=5)
+    # print (results)
 
     context_text = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
+    # print(context_text)
     prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
     prompt = prompt_template.format(context=context_text, question=query_text)
     # print(prompt)
-    model = OllamaLLM(model="dolphin-mixtral")
+    model = OllamaLLM(model="llama3.2")
     response_text = model.invoke(prompt)
 
     sources = [doc.metadata.get("id", None) for doc, _score in results]
