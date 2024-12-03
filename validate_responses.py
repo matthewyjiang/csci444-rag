@@ -10,21 +10,24 @@ import glob
 
 logger = logging.getLogger(__name__)
 
-LOGFILE = "validate_responses.log"
+LOGFILE = "logs/relevant1.log"
 
 CHROMA_PATH = "chroma"
 
 PROMPT_TEMPLATE = """
-You are a system designed to verify the accuracy of answers. Compare the RAG answer with the ground truth and determine if the RAG answer correctly reflects the ground truth. 
+You are a system designed to verify the accuracy of answers and the relevance of sources.
 
-- RAG Answer: {RAG_ANSWER}
-- Ground Truth: {GROUND_TRUTH}
+Compare the RAG answer with the ground truth and determine if the RAG answer correctly reflects the ground truth. Determine if the sources provided are relevant to the question.
+Question: {QUESTION}
+RAG Answer: {RAG_ANSWER}
+Ground Truth: {GROUND_TRUTH}
+The sources are prepended to the question.
 
-If the RAG answer aligns with the ground truth, respond with "TRUE". If it does not align, respond with "FALSE". 
+If the RAG answer aligns with the ground truth, respond with "TRUE" or "FALSE" for accuracy.
+If the sources are relevant to the question, respond with "RELEVANT" or "IRRELEVANT" for source relevance.
 
-Respond with only one word: TRUE or FALSE.
+Respond with two words: one for accuracy (TRUE/FALSE) and one for source relevance (RELEVANT/IRRELEVANT), in that order.
 """
-
 
 
 def main():
@@ -44,6 +47,8 @@ def main():
         dfs.append((file, pd.read_csv(file)))
     
     count_matching = 0
+    count_relevant = 0
+    count_relevant_and_matching = 0
     count_total = 0
     
     
@@ -58,17 +63,25 @@ def main():
             logger.info("querying RAG + model")
             response, sources = query_rag(question, print_output=False)
             logger.info("querying validation model")
-            result = validate_response_openai(answer, response.strip()).strip()
+            result = validate_response_openai(answer, response.strip(), question).strip()
 
+            result = result.split()
             
-            if result == "TRUE":
+            if "TRUE" in result:
                 result_bool = True
                 count_matching += 1
-            elif result == "FALSE":
+            elif "FALSE" in result:
                 result_bool = False
-            else:
-                result_bool = None
-                count_total -= 1
+            
+            if "RELEVANT" in result:
+                count_relevant += 1
+                relevant_bool = True
+            elif "IRRELEVANT" in result:
+                relevant_bool = False
+                
+                
+            if relevant_bool and result_bool:
+                count_relevant_and_matching += 1
                 
             count_total += 1
             
@@ -79,19 +92,38 @@ def main():
             RESPONSE: "{response}"
             SOURCES: {sources}
             MATCHES: {result_bool}
+            RELEVANT_SOURCES: {relevant_bool}
             ============================
             """
             logger.info(logstring)
             
         accuracy = count_matching / count_total
         
+        relevancy = count_relevant / count_total
+        
+        relevant_given_matching = count_relevant_and_matching / count_matching
+        matching_given_relevant = count_relevant_and_matching / count_relevant
+        
         print(f"Accuracy: {accuracy}")
+        print(f"Relevancy: {relevancy}")
+        print(f"Relevant given Matching: {relevant_given_matching}")
+        print(f"Matching given Relevant: {matching_given_relevant}")
+        
+        if file.split("/")[-1].split("_")[1][0] == "t":
+            questiontype = "tf"
+        else:
+            questiontype = "sa"
+        
+        fileid = file.split("/")[-1].split(".")[0][:3] + questiontype
+        
+        print(f"csv: \n{fileid},temp,{accuracy},{relevancy},{relevant_given_matching},{matching_given_relevant}")
+        
 
 
 
-def validate_response(answer: str, response: str):
+def validate_response(answer: str, response: str, question: str) -> str:
     prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
-    prompt = prompt_template.format(GROUND_TRUTH=answer, RAG_ANSWER=response)
+    prompt = prompt_template.format(GROUND_TRUTH=answer, RAG_ANSWER=response, QUESTION=question)
     model = OllamaLLM(model="hermes3")
     response_text = model.invoke(prompt)
     

@@ -1,0 +1,1552 @@
+2024-11-28 21:36:34,346 - __main__ - INFO - Validating responses in 467questions/467qa_tf.csv
+2024-11-28 21:36:34,346 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:35,156 - __main__ - INFO - querying validation model
+2024-11-28 21:36:36,596 - __main__ - INFO - 
+            QUESTION INDEX: 0
+            QUESTION: True/False: In linear regression, the bias term is responsible for shifting the linear function up or down.
+            EXPECTED:  true
+            RESPONSE: "True. The text states that "the bias term b ∈ R are parameters of our model" and "we can think of the bias as the baseline value", implying that the bias term shifts the linear function up or down."
+            SOURCES: ['467data/467notes.pdf:8:1', '467data/467notes.pdf:26:1', '467data/467notes.pdf:5:0', '467data/467notes.pdf:23:0', '467data/467notes.pdf:17:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:36,597 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:37,248 - __main__ - INFO - querying validation model
+2024-11-28 21:36:37,577 - __main__ - INFO - 
+            QUESTION INDEX: 1
+            QUESTION: True/False: The loss function used in linear regression is always the squared loss function.
+            EXPECTED:  true
+            RESPONSE: "True. According to the text, "While other loss functions are possible, we will see later why squared loss is a natural choice... For linear regression, we will use the squared loss function—""
+            SOURCES: ['467data/467notes.pdf:5:2', '467data/467notes.pdf:30:0', '467data/467notes.pdf:45:0', '467data/467notes.pdf:31:3', '467data/467notes.pdf:14:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:37,578 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:38,140 - __main__ - INFO - querying validation model
+2024-11-28 21:36:38,521 - __main__ - INFO - 
+            QUESTION INDEX: 2
+            QUESTION: True/False: Gradient descent is a specific algorithm used only for optimizing linear regression models.
+            EXPECTED:  false
+            RESPONSE: "False. According to the text, gradient descent is a general optimization technique that can be applied to various machine learning problems, including linear regression, and is not limited to optimizing linear regression models specifically."
+            SOURCES: ['467data/467notes.pdf:10:4', '467data/467notes.pdf:30:0', '467data/467notes.pdf:10:3', '467data/467notes.pdf:7:3', '467data/467notes.pdf:6:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:38,522 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:39,212 - __main__ - INFO - querying validation model
+2024-11-28 21:36:39,572 - __main__ - INFO - 
+            QUESTION INDEX: 3
+            QUESTION: True/False: Adding polynomial features to a linear regression model can enable it to capture non-linear patterns.
+            EXPECTED:  true
+            RESPONSE: "True. According to the text, adding polynomial features (e.g., x and x^2) to a linear regression model enables it to capture non-linear patterns by learning functions that are non-linear in the original input."
+            SOURCES: ['467data/467notes.pdf:43:3', '467data/467notes.pdf:10:3', '467data/467notes.pdf:9:2', '467data/467notes.pdf:18:2', '467data/467notes.pdf:9:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:39,573 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:40,075 - __main__ - INFO - querying validation model
+2024-11-28 21:36:40,526 - __main__ - INFO - 
+            QUESTION INDEX: 4
+            QUESTION: True/False: Convex functions have the property that all local minima are also global minima.
+            EXPECTED:  true
+            RESPONSE: "True. According to the text, "All local minima of a convex function are global minima.""
+            SOURCES: ['467data/467notes.pdf:12:0', '467data/467notes.pdf:12:2', '467data/467notes.pdf:10:4', '467data/467notes.pdf:12:1', '467data/467notes.pdf:14:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:40,526 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:41,028 - __main__ - INFO - querying validation model
+2024-11-28 21:36:41,339 - __main__ - INFO - 
+            QUESTION INDEX: 5
+            QUESTION: True/False: The maximum likelihood estimation (MLE) principle can be applied to derive linear regression.
+            EXPECTED:  true
+            RESPONSE: "True. According to the text, applying the principle of Maximum Likelihood Estimation (MLE) is exactly how linear regression was derived in this chapter."
+            SOURCES: ['467data/467notes.pdf:15:1', '467data/467notes.pdf:14:3', '467data/467notes.pdf:30:0', '467data/467notes.pdf:28:1', '467data/467notes.pdf:35:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:41,339 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:42,051 - __main__ - INFO - querying validation model
+2024-11-28 21:36:42,625 - __main__ - INFO - 
+            QUESTION INDEX: 6
+            QUESTION: True/False: In logistic regression, the probability of the output being 1 is given by the sigmoid function applied to the linear combination of the input features and weights.
+            EXPECTED:  true
+            RESPONSE: "True. The equation p(y = 1 | x; w) = σ(w⊤x) states that the probability of y being 1 (or -1) is equal to the sigmoid function applied to the linear combination of the input features x and weights w."
+            SOURCES: ['467data/467notes.pdf:17:1', '467data/467notes.pdf:17:0', '467data/467notes.pdf:23:0', '467data/467notes.pdf:44:3', '467data/467notes.pdf:18:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:42,625 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:43,216 - __main__ - INFO - querying validation model
+2024-11-28 21:36:43,547 - __main__ - INFO - 
+            QUESTION INDEX: 7
+            QUESTION: True/False: Logistic regression can be applied directly to multi-class classification without modifications.
+            EXPECTED:  false
+            RESPONSE: "False. According to the context, logistic regression needs to be modified for multi-class classification by using softmax regression or multinomial logistic regression, which involves extending it to a set of parameter vectors instead of a single vector."
+            SOURCES: ['467data/467notes.pdf:20:2', '467data/467notes.pdf:23:0', '467data/467notes.pdf:43:0', '467data/467notes.pdf:17:0', '467data/467notes.pdf:44:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:43,547 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:44,022 - __main__ - INFO - querying validation model
+2024-11-28 21:36:44,386 - __main__ - INFO - 
+            QUESTION INDEX: 8
+            QUESTION: True/False: In logistic regression, the decision boundary is defined by the points where the dot product between the feature vector and weights is zero.
+            EXPECTED:  true
+            RESPONSE: "True. According to the text, "This hyperplane is always perpendicular to the weight vector w.""
+            SOURCES: ['467data/467notes.pdf:18:1', '467data/467notes.pdf:23:0', '467data/467notes.pdf:46:2', '467data/467notes.pdf:40:1', '467data/467notes.pdf:18:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:44,387 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:45,104 - __main__ - INFO - querying validation model
+2024-11-28 21:36:46,215 - __main__ - INFO - 
+            QUESTION INDEX: 9
+            QUESTION: True/False: Overfitting occurs when the model performs well on training data but poorly on unseen test data.
+            EXPECTED:  true
+            RESPONSE: "True. According to the text, "The ultimate litmus test is whether our model makes good predictions on new, unseen examples." This implies that overfitting occurs when a model fits the training data too well (low training error) but performs poorly on unseen test data."
+            SOURCES: ['467data/467notes.pdf:24:1', '467data/467notes.pdf:24:0', '467data/467notes.pdf:26:2', '467data/467notes.pdf:27:0', '467data/467notes.pdf:26:3']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:46,216 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:46,788 - __main__ - INFO - querying validation model
+2024-11-28 21:36:47,112 - __main__ - INFO - 
+            QUESTION INDEX: 10
+            QUESTION: True/False: A high-degree polynomial model is less likely to overfit than a linear model.
+            EXPECTED:  false
+            RESPONSE: "True. The text states that "high variance" (i.e., large model family) increases the likelihood of overfitting, and a high-degree polynomial model would have a larger model family than a linear model."
+            SOURCES: ['467data/467notes.pdf:24:1', '467data/467notes.pdf:24:0', '467data/467notes.pdf:43:3', '467data/467notes.pdf:26:2', '467data/467notes.pdf:18:2']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:36:47,112 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:47,700 - __main__ - INFO - querying validation model
+2024-11-28 21:36:48,859 - __main__ - INFO - 
+            QUESTION INDEX: 11
+            QUESTION: True/False: A development (validation) set is used for evaluating model performance after hyperparameter tuning.
+            EXPECTED:  false
+            RESPONSE: "True. According to the text, a development (validation) set is used to "choose hyperparameters" and evaluate model performance before training the final model on the test set."
+            SOURCES: ['467data/467notes.pdf:25:1', '467data/467notes.pdf:25:0', '467data/467notes.pdf:26:2', '467data/467notes.pdf:26:0', '467data/467notes.pdf:25:3']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:36:48,859 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:49,452 - __main__ - INFO - querying validation model
+2024-11-28 21:36:49,981 - __main__ - INFO - 
+            QUESTION INDEX: 12
+            QUESTION: True/False: In supervised learning, the ultimate goal is to achieve low loss on the training data.
+            EXPECTED:  false
+            RESPONSE: "True. According to the text, in supervised learning, the algorithm receives a dataset as an input and tries to extract insights from it, with the ultimate goal of minimizing the loss function (e.g. squared loss) associated with it."
+            SOURCES: ['467data/467notes.pdf:73:2', '467data/467notes.pdf:67:1', '467data/467notes.pdf:46:2', '467data/467notes.pdf:5:2', '467data/467notes.pdf:30:0']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:49,981 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:50,544 - __main__ - INFO - querying validation model
+2024-11-28 21:36:50,835 - __main__ - INFO - 
+            QUESTION INDEX: 13
+            QUESTION: True/False: Bias in a model refers to its inability to capture patterns due to restrictive assumptions.
+            EXPECTED:  true
+            RESPONSE: "True. Bias refers to errors that arise because assumptions of the model do not match the reality of the task, meaning it's an error caused by restrictive assumptions."
+            SOURCES: ['467data/467notes.pdf:26:1', '467data/467notes.pdf:27:0', '467data/467notes.pdf:40:1', '467data/467notes.pdf:26:2', '467data/467notes.pdf:26:3']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:50,836 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:51,400 - __main__ - INFO - querying validation model
+2024-11-28 21:36:51,779 - __main__ - INFO - 
+            QUESTION INDEX: 14
+            QUESTION: True/False: Variance in a model increases when the model is highly sensitive to small changes in the training dataset.
+            EXPECTED:  true
+            RESPONSE: "True. According to the text, "The larger your model family is, the larger your variance will be—when you have more candidates, it’s harder to identify the best one.""
+            SOURCES: ['467data/467notes.pdf:26:2', '467data/467notes.pdf:40:1', '467data/467notes.pdf:26:0', '467data/467notes.pdf:24:1', '467data/467notes.pdf:32:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:51,779 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:52,588 - __main__ - INFO - querying validation model
+2024-11-28 21:36:53,076 - __main__ - INFO - 
+            QUESTION INDEX: 15
+            QUESTION: True/False: A function is convex if the line segment connecting any two points on the graph of the function lies above the function itself.
+            EXPECTED:  true
+            RESPONSE: "True. The text states that "The line is traced out by the right hand side of the inequality as t goes from 0 to 1, whereas the function itself is given by the left hand side." This implies that if the line segment connecting any two points on the graph of the function lies above the function itself, then the function is convex."
+            SOURCES: ['467data/467notes.pdf:11:1', '467data/467notes.pdf:11:0', '467data/467notes.pdf:13:0', '467data/467notes.pdf:14:1', '467data/467notes.pdf:13:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:53,076 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:53,436 - __main__ - INFO - querying validation model
+2024-11-28 21:36:53,817 - __main__ - INFO - 
+            QUESTION INDEX: 16
+            QUESTION: True/False: Regularization techniques help in reducing model overfitting.
+            EXPECTED:  true
+            RESPONSE: "True."
+            SOURCES: ['467data/467notes.pdf:24:0', '467data/467notes.pdf:27:0', '467data/467notes.pdf:27:2', '467data/467notes.pdf:24:1', '467data/467notes.pdf:28:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:53,817 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:54,404 - __main__ - INFO - querying validation model
+2024-11-28 21:36:54,711 - __main__ - INFO - 
+            QUESTION INDEX: 17
+            QUESTION: True/False: L2 regularization penalizes the sum of the absolute values of the model parameters.
+            EXPECTED:  false
+            RESPONSE: "False. According to the text, L2 regularization penalizes the 2-norm (i.e., the square root of the sum of squared elements) of the model parameters, not the sum of their absolute values."
+            SOURCES: ['467data/467notes.pdf:27:2', '467data/467notes.pdf:27:1', '467data/467notes.pdf:29:2', '467data/467notes.pdf:29:0', '467data/467notes.pdf:28:3']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:54,711 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:55,540 - __main__ - INFO - querying validation model
+2024-11-28 21:36:56,015 - __main__ - INFO - 
+            QUESTION INDEX: 18
+            QUESTION: True/False: In MLE, the goal is to find the parameters that make the observed data most probable under the model.
+            EXPECTED:  true
+            RESPONSE: "True. According to the text, "The best θ is the one that best explains the data, i.e., the θ under which the data has the highest probability (hence, maximum likelihood)". This implies that the goal of MLE is to find parameters that make the observed data most probable under the model."
+            SOURCES: ['467data/467notes.pdf:14:3', '467data/467notes.pdf:28:1', '467data/467notes.pdf:35:0', '467data/467notes.pdf:58:0', '467data/467notes.pdf:15:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:56,016 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:56,556 - __main__ - INFO - querying validation model
+2024-11-28 21:36:56,894 - __main__ - INFO - 
+            QUESTION INDEX: 19
+            QUESTION: True/False: When using logistic regression, the sigmoid function output is bounded between -1 and 1.
+            EXPECTED:  false
+            RESPONSE: "False. According to the text, the sigmoid function output is actually bounded between 0 and 1, with σ(z) = 1 / (1 + exp(-z))."
+            SOURCES: ['467data/467notes.pdf:17:1', '467data/467notes.pdf:17:0', '467data/467notes.pdf:44:3', '467data/467notes.pdf:45:0', '467data/467notes.pdf:23:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:56,894 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:57,628 - __main__ - INFO - querying validation model
+2024-11-28 21:36:57,966 - __main__ - INFO - 
+            QUESTION INDEX: 20
+            QUESTION: True/False: k-nearest neighbors is an example of a non-parametric method.
+            EXPECTED:  true
+            RESPONSE: "True. According to the text, k-Nearest Neighbors (k-NN) is considered a non-parametric method because it does not learn parameters that are fixed regardless of the training dataset size. Instead, the algorithm requires test data and its performance relies on the similarity between the new input and the training examples."
+            SOURCES: ['467data/467notes.pdf:39:1', '467data/467notes.pdf:39:0', '467data/467notes.pdf:40:2', '467data/467notes.pdf:40:3', '467data/467notes.pdf:40:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:57,967 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:58,771 - __main__ - INFO - querying validation model
+2024-11-28 21:36:59,259 - __main__ - INFO - 
+            QUESTION INDEX: 21
+            QUESTION: True/False: Support vector machines (SVM) are based on finding the hyperplane that minimizes classification error.
+            EXPECTED:  false
+            RESPONSE: "True. According to the context, SVMs aim to find a decision boundary along which the two classes are furthest apart, and this is achieved by minimizing the L2 norm of w (the coefficients in the linear combination of x's), which maximizes the distance between hyperplanes where margin is 1 and the decision boundary."
+            SOURCES: ['467data/467notes.pdf:46:2', '467data/467notes.pdf:46:1', '467data/467notes.pdf:47:0', '467data/467notes.pdf:44:2', '467data/467notes.pdf:45:2']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:36:59,259 - __main__ - INFO - querying RAG + model
+2024-11-28 21:36:59,872 - __main__ - INFO - querying validation model
+2024-11-28 21:37:00,373 - __main__ - INFO - 
+            QUESTION INDEX: 22
+            QUESTION: True/False: The kernel trick" is used in SVMs to enable learning in high-dimensional spaces without explicitly computing those spaces."
+            EXPECTED:  true
+            RESPONSE: "True. According to the text, the kernel trick allows for learning in high-dimensional spaces by transforming data into a higher-dimensional space where the original high dimensionality is no longer an issue, making it possible to apply standard algorithms like logistic regression to these features."
+            SOURCES: ['467data/467notes.pdf:44:2', '467data/467notes.pdf:46:2', '467data/467notes.pdf:40:2', '467data/467notes.pdf:44:0', '467data/467notes.pdf:44:3']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:00,374 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:00,900 - __main__ - INFO - querying validation model
+2024-11-28 21:37:01,386 - __main__ - INFO - 
+            QUESTION INDEX: 23
+            QUESTION: True/False: The softmax function can be used in binary classification problems.
+            EXPECTED:  true
+            RESPONSE: "True. The softmax function is essentially a reparameterized version of logistic regression when K=2."
+            SOURCES: ['467data/467notes.pdf:21:1', '467data/467notes.pdf:20:2', '467data/467notes.pdf:21:0', '467data/467notes.pdf:22:2', '467data/467notes.pdf:17:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:01,386 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:02,123 - __main__ - INFO - querying validation model
+2024-11-28 21:37:02,578 - __main__ - INFO - 
+            QUESTION INDEX: 24
+            QUESTION: True/False: A higher learning rate in gradient descent always leads to faster and more accurate convergence.
+            EXPECTED:  false
+            RESPONSE: "False. The text states that a small number (e.g., 0.01) is used as the learning rate, which "determines how small of a step we want to take at each iteration." This implies that a higher learning rate would actually lead to larger steps, potentially making convergence slower and less accurate."
+            SOURCES: ['467data/467notes.pdf:10:4', '467data/467notes.pdf:7:3', '467data/467notes.pdf:49:4', '467data/467notes.pdf:28:0', '467data/467notes.pdf:7:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:02,578 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:03,132 - __main__ - INFO - querying validation model
+2024-11-28 21:37:03,463 - __main__ - INFO - 
+            QUESTION INDEX: 25
+            QUESTION: True/False: In linear regression, adding more features always improves model performance.
+            EXPECTED:  false
+            RESPONSE: "False. According to the text, you can choose features to be any function of the input, so the learned function can be non-linear in the original input even if it's a linear model."
+            SOURCES: ['467data/467notes.pdf:10:3', '467data/467notes.pdf:18:2', '467data/467notes.pdf:9:2', '467data/467notes.pdf:27:2', '467data/467notes.pdf:23:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:03,463 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:04,032 - __main__ - INFO - querying validation model
+2024-11-28 21:37:04,475 - __main__ - INFO - 
+            QUESTION INDEX: 26
+            QUESTION: True/False: Cross-entropy is commonly used as the loss function in multi-class classification problems.
+            EXPECTED:  true
+            RESPONSE: "True. The text mentions that kernels are linear classifiers and can be viewed as minimizing a loss function similar to cross-entropy."
+            SOURCES: ['467data/467notes.pdf:73:2', '467data/467notes.pdf:32:2', '467data/467notes.pdf:44:3', '467data/467notes.pdf:51:3', '467data/467notes.pdf:46:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:04,475 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:05,103 - __main__ - INFO - querying validation model
+2024-11-28 21:37:05,620 - __main__ - INFO - 
+            QUESTION INDEX: 27
+            QUESTION: True/False: In logistic regression, a positive dot product between weights and features indicates a positive class prediction.
+            EXPECTED:  true
+            RESPONSE: "True. According to the text, "On the other side of the decision boundary, points have negative dot product with w, and thus are more likely to be negative." This implies that when the dot product is positive, it indicates a positive class prediction."
+            SOURCES: ['467data/467notes.pdf:18:1', '467data/467notes.pdf:23:0', '467data/467notes.pdf:41:4', '467data/467notes.pdf:41:1', '467data/467notes.pdf:42:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:05,620 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:06,179 - __main__ - INFO - querying validation model
+2024-11-28 21:37:06,859 - __main__ - INFO - 
+            QUESTION INDEX: 28
+            QUESTION: True/False: Overfitting in a model can be detected by comparing training and test losses.
+            EXPECTED:  true
+            RESPONSE: "True. Overfitting can be detected by observing if increasing model complexity improves both training loss and test loss, but then hurting test loss when it is increased further."
+            SOURCES: ['467data/467notes.pdf:24:1', '467data/467notes.pdf:24:0', '467data/467notes.pdf:25:0', '467data/467notes.pdf:26:2', '467data/467notes.pdf:26:3']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:06,859 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:07,488 - __main__ - INFO - querying validation model
+2024-11-28 21:37:07,844 - __main__ - INFO - 
+            QUESTION INDEX: 29
+            QUESTION: True/False: The normal equation provides a closed-form solution for optimizing linear regression without needing gradient descent.
+            EXPECTED:  true
+            RESPONSE: "True. According to the text, the Normal Equations provide a closed-form solution for optimizing linear regression, as shown by equations (4.9), which can be used to find the optimal weight vector w without requiring gradient descent."
+            SOURCES: ['467data/467notes.pdf:30:0', '467data/467notes.pdf:30:1', '467data/467notes.pdf:5:3', '467data/467notes.pdf:27:2', '467data/467notes.pdf:31:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:07,844 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:08,327 - __main__ - INFO - querying validation model
+2024-11-28 21:37:08,682 - __main__ - INFO - 
+            QUESTION INDEX: 30
+            QUESTION: True/False: Linear regression is used to predict categorical outcomes
+            EXPECTED: false
+            RESPONSE: "True. The context mentions logistic regression as another instance of a linear model, and lists it alongside linear regression in chapter 1 as an example of supervised learning."
+            SOURCES: ['467data/467notes.pdf:23:0', '467data/467notes.pdf:4:0', '467data/467notes.pdf:18:2', '467data/467notes.pdf:18:1', '467data/467notes.pdf:41:4']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:37:08,682 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:09,372 - __main__ - INFO - querying validation model
+2024-11-28 21:37:09,904 - __main__ - INFO - 
+            QUESTION INDEX: 31
+            QUESTION: True/False: The bias term in linear regression shifts the prediction line up or down
+            EXPECTED: true
+            RESPONSE: "True. According to the text, the bias term "operates the exact same way that the bias does" and adding an additional feature with a value of 1 lets us omit the bias term, implying that the bias term shifts the prediction line up."
+            SOURCES: ['467data/467notes.pdf:8:1', '467data/467notes.pdf:5:0', '467data/467notes.pdf:40:1', '467data/467notes.pdf:26:1', '467data/467notes.pdf:23:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:09,904 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:10,460 - __main__ - INFO - querying validation model
+2024-11-28 21:37:10,728 - __main__ - INFO - 
+            QUESTION INDEX: 32
+            QUESTION: True/False: Gradient descent is always guaranteed to find the global minimum
+            EXPECTED: false
+            RESPONSE: "False. According to the text, gradient descent can converge to a local optimum that could be much worse than the global optimum, unless the objective function has all local optima as global optima, which holds for convex functions."
+            SOURCES: ['467data/467notes.pdf:10:4', '467data/467notes.pdf:7:3', '467data/467notes.pdf:6:1', '467data/467notes.pdf:7:2', '467data/467notes.pdf:12:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:10,729 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:11,368 - __main__ - INFO - querying validation model
+2024-11-28 21:37:11,751 - __main__ - INFO - 
+            QUESTION INDEX: 33
+            QUESTION: True/False: Adding polynomial features to a model allows it to capture non-linear patterns
+            EXPECTED: true
+            RESPONSE: "True. According to the text, adding polynomial features (e.g., x, x2) can replace linear functions and allow the model to capture non-linear patterns in data."
+            SOURCES: ['467data/467notes.pdf:43:3', '467data/467notes.pdf:10:3', '467data/467notes.pdf:72:4', '467data/467notes.pdf:9:1', '467data/467notes.pdf:73:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:11,751 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:12,276 - __main__ - INFO - querying validation model
+2024-11-28 21:37:12,586 - __main__ - INFO - 
+            QUESTION INDEX: 34
+            QUESTION: True/False: A convex function has all local minima as global minima
+            EXPECTED: true
+            RESPONSE: "True. According to the definition mentioned in Figure 1.5, a convex function cannot have a local minimum that is not also a global minimum."
+            SOURCES: ['467data/467notes.pdf:12:0', '467data/467notes.pdf:12:2', '467data/467notes.pdf:12:1', '467data/467notes.pdf:10:4', '467data/467notes.pdf:14:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:12,586 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:13,300 - __main__ - INFO - querying validation model
+2024-11-28 21:37:13,678 - __main__ - INFO - 
+            QUESTION INDEX: 35
+            QUESTION: True/False: Regularization is used to increase the complexity of a machine learning model
+            EXPECTED: false
+            RESPONSE: "False. According to the text, regularization is actually used to reduce overfitting by imposing a soft constraint to encourage "simpler" functions, thereby decreasing the size of the model family and reducing the risk of overfitting."
+            SOURCES: ['467data/467notes.pdf:27:0', '467data/467notes.pdf:27:2', '467data/467notes.pdf:27:1', '467data/467notes.pdf:28:0', '467data/467notes.pdf:24:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:13,679 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:14,408 - __main__ - INFO - querying validation model
+2024-11-28 21:37:14,725 - __main__ - INFO - 
+            QUESTION INDEX: 36
+            QUESTION: True/False: L1 regularization encourages sparsity in model parameters
+            EXPECTED: true
+            RESPONSE: "True. According to the text, "L1 regularization has a sparsifying effect... It will keep pushing wj to be smaller and smaller until it’s at 0." This implies that L1 regularization encourages sparse vectors (i.e., many entries exactly 0)."
+            SOURCES: ['467data/467notes.pdf:27:2', '467data/467notes.pdf:29:2', '467data/467notes.pdf:29:0', '467data/467notes.pdf:29:1', '467data/467notes.pdf:27:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:14,725 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:15,199 - __main__ - INFO - querying validation model
+2024-11-28 21:37:16,083 - __main__ - INFO - 
+            QUESTION INDEX: 37
+            QUESTION: True/False: L2 regularization penalizes the absolute values of model parameters
+            EXPECTED: false
+            RESPONSE: "False. According to the text, L2 regularization penalizes the squared values (i.e., the 2-norm) of the model parameters, not their absolute values."
+            SOURCES: ['467data/467notes.pdf:27:2', '467data/467notes.pdf:27:1', '467data/467notes.pdf:29:2', '467data/467notes.pdf:28:3', '467data/467notes.pdf:29:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:16,083 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:16,828 - __main__ - INFO - querying validation model
+2024-11-28 21:37:17,300 - __main__ - INFO - 
+            QUESTION INDEX: 38
+            QUESTION: True/False: The sigmoid function is used to map values to a range of 0 to 1
+            EXPECTED: true
+            RESPONSE: "True. According to section 2.3, the "sigmoid" or "logistic" function is defined as p(y = 1 | x; w) = σ(w⊤x), which maps values to a range of 0 to 1."
+            SOURCES: ['467data/467notes.pdf:17:1', '467data/467notes.pdf:44:3', '467data/467notes.pdf:27:2', '467data/467notes.pdf:46:2', '467data/467notes.pdf:64:3']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:17,301 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:17,864 - __main__ - INFO - querying validation model
+2024-11-28 21:37:18,225 - __main__ - INFO - 
+            QUESTION INDEX: 39
+            QUESTION: True/False: The softmax function is used in binary classification problems
+            EXPECTED: false
+            RESPONSE: "False. According to the text, the softmax function is typically used in multi-class classification problems, not binary classification problems."
+            SOURCES: ['467data/467notes.pdf:21:1', '467data/467notes.pdf:20:2', '467data/467notes.pdf:21:0', '467data/467notes.pdf:22:2', '467data/467notes.pdf:17:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:18,225 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:18,851 - __main__ - INFO - querying validation model
+2024-11-28 21:37:19,152 - __main__ - INFO - 
+            QUESTION INDEX: 40
+            QUESTION: True/False: In logistic regression, the decision boundary is always a straight line
+            EXPECTED: true
+            RESPONSE: "False. The text states that the decision boundary in logistic regression is defined by the equation w⊤x + b = 0, which implies that it can be any hyperplane (not necessarily a straight line) perpendicular to the weight vector w."
+            SOURCES: ['467data/467notes.pdf:18:1', '467data/467notes.pdf:40:1', '467data/467notes.pdf:23:0', '467data/467notes.pdf:18:2', '467data/467notes.pdf:17:1']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:37:19,152 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:19,772 - __main__ - INFO - querying validation model
+2024-11-28 21:37:20,165 - __main__ - INFO - 
+            QUESTION INDEX: 41
+            QUESTION: True/False: Overfitting occurs when the model performs poorly on training data
+            EXPECTED: false
+            RESPONSE: "False. According to the context, overfitting occurs when a model fits the training data too closely, resulting in "non-meaningful fluctuations", but it does not perform well on new, unseen examples."
+            SOURCES: ['467data/467notes.pdf:24:1', '467data/467notes.pdf:24:0', '467data/467notes.pdf:26:2', '467data/467notes.pdf:26:3', '467data/467notes.pdf:27:0']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:37:20,165 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:20,763 - __main__ - INFO - querying validation model
+2024-11-28 21:37:21,245 - __main__ - INFO - 
+            QUESTION INDEX: 42
+            QUESTION: True/False: A test dataset is used to evaluate the model on unseen data
+            EXPECTED: true
+            RESPONSE: "True. According to the text, "Once you do this, you evaluate on the test set to estimate how good your model is on unseen examples." This suggests that the test dataset serves as a proxy for evaluating the model on new, unseen data."
+            SOURCES: ['467data/467notes.pdf:25:1', '467data/467notes.pdf:25:3', '467data/467notes.pdf:36:1', '467data/467notes.pdf:27:0', '467data/467notes.pdf:25:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:21,246 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:21,976 - __main__ - INFO - querying validation model
+2024-11-28 21:37:22,577 - __main__ - INFO - 
+            QUESTION INDEX: 43
+            QUESTION: True/False: A development set is used to train the model
+            EXPECTED: false
+            RESPONSE: "False. According to the context, a development set (or validation set) is used to choose hyperparameters, such as learning rate, and evaluate the performance of the model, not to train the model itself. The training dataset is used for training the model."
+            SOURCES: ['467data/467notes.pdf:25:1', '467data/467notes.pdf:25:0', '467data/467notes.pdf:25:3', '467data/467notes.pdf:72:4', '467data/467notes.pdf:73:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:22,577 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:23,122 - __main__ - INFO - querying validation model
+2024-11-28 21:37:23,548 - __main__ - INFO - 
+            QUESTION INDEX: 44
+            QUESTION: True/False: Gradient descent always converges if the learning rate is too high
+            EXPECTED: false
+            RESPONSE: "True. The text states that gradient descent will converge to the global optimum for objective functions that are convex, implying that even a high learning rate can lead to convergence in such cases."
+            SOURCES: ['467data/467notes.pdf:10:4', '467data/467notes.pdf:28:0', '467data/467notes.pdf:7:3', '467data/467notes.pdf:7:2', '467data/467notes.pdf:6:1']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:37:23,548 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:24,040 - __main__ - INFO - querying validation model
+2024-11-28 21:37:24,455 - __main__ - INFO - 
+            QUESTION INDEX: 45
+            QUESTION: True/False: Cross-entropy loss is used for regression problems
+            EXPECTED: false
+            RESPONSE: "False. The text discusses logistic regression, which uses log-sigmoid loss, but does not mention cross-entropy loss."
+            SOURCES: ['467data/467notes.pdf:31:3', '467data/467notes.pdf:5:2', '467data/467notes.pdf:23:0', '467data/467notes.pdf:45:0', '467data/467notes.pdf:73:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:24,455 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:25,159 - __main__ - INFO - querying validation model
+2024-11-28 21:37:25,539 - __main__ - INFO - 
+            QUESTION INDEX: 46
+            QUESTION: True/False: The kernel trick is used to transform data into a higher-dimensional space
+            EXPECTED: true
+            RESPONSE: "True. According to the text, the kernel trick is used to replace every occurrence of dot product with the RBF kernel, which transforms the original feature space into a new feature space that computes the same dot products in a different way."
+            SOURCES: ['467data/467notes.pdf:44:0', '467data/467notes.pdf:43:1', '467data/467notes.pdf:43:2', '467data/467notes.pdf:44:3', '467data/467notes.pdf:47:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:25,540 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:25,852 - __main__ - INFO - querying validation model
+2024-11-28 21:37:26,262 - __main__ - INFO - 
+            QUESTION INDEX: 47
+            QUESTION: True/False: Principal Component Analysis (PCA) is a dimensionality reduction technique
+            EXPECTED: true
+            RESPONSE: "True."
+            SOURCES: ['467data/467notes.pdf:66:0', '467data/467notes.pdf:62:2', '467data/467notes.pdf:61:0', '467data/467notes.pdf:62:0', '467data/467notes.pdf:62:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:26,262 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:26,876 - __main__ - INFO - querying validation model
+2024-11-28 21:37:27,271 - __main__ - INFO - 
+            QUESTION INDEX: 48
+            QUESTION: True/False: Naive Bayes assumes that features are independent given the class
+            EXPECTED: true
+            RESPONSE: "True. According to Section 5.3, in the general case, Naive Bayes still holds exactly as before, assuming that each feature is independently sampled (P(xj | y))."
+            SOURCES: ['467data/467notes.pdf:37:0', '467data/467notes.pdf:34:0', '467data/467notes.pdf:34:1', '467data/467notes.pdf:33:0', '467data/467notes.pdf:37:3']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:27,271 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:28,108 - __main__ - INFO - querying validation model
+2024-11-28 21:37:28,576 - __main__ - INFO - 
+            QUESTION INDEX: 49
+            QUESTION: True/False: Laplace smoothing is used to avoid zero probabilities in Naive Bayes
+            EXPECTED: true
+            RESPONSE: "True. The text mentions "Laplace smoothing" as a way to resolve issues with zero probabilities, but it doesn't explicitly state that Laplace smoothing is specifically mentioned for Naive Bayes; however, its usage can be applied to many cases of the Naive Bayes model including those in which P(xj | y) could become 0."
+            SOURCES: ['467data/467notes.pdf:28:0', '467data/467notes.pdf:37:0', '467data/467notes.pdf:34:1', '467data/467notes.pdf:37:3', '467data/467notes.pdf:28:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:28,576 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:29,444 - __main__ - INFO - querying validation model
+2024-11-28 21:37:29,785 - __main__ - INFO - 
+            QUESTION INDEX: 50
+            QUESTION: True/False: Support vector machines always use linear decision boundaries
+            EXPECTED: false
+            RESPONSE: "True. According to the context, SVMs aim for a decision boundary that balances two considerations: ensuring all examples have a margin of at least 1 and minimizing the L2 norm of w (which corresponds to maximizing the distance between hyperplanes with margin 1). The resulting decision boundary is only dependent on points with margin ≤ 1, which are referred to as support vectors."
+            SOURCES: ['467data/467notes.pdf:47:0', '467data/467notes.pdf:46:2', '467data/467notes.pdf:46:1', '467data/467notes.pdf:46:3', '467data/467notes.pdf:18:2']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:37:29,786 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:30,531 - __main__ - INFO - querying validation model
+2024-11-28 21:37:31,100 - __main__ - INFO - 
+            QUESTION INDEX: 51
+            QUESTION: True/False: k-means clustering is a supervised learning method
+            EXPECTED: false
+            RESPONSE: "False. According to the text, k-means clustering is an unsupervised learning method because it does not have explicit supervision of which class each training example belongs to and its goal is not to learn a mapping from inputs to outputs, but rather to divide up the data into clusters."
+            SOURCES: ['467data/467notes.pdf:51:1', '467data/467notes.pdf:48:0', '467data/467notes.pdf:51:3', '467data/467notes.pdf:49:0', '467data/467notes.pdf:51:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:31,100 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:31,376 - __main__ - INFO - querying validation model
+2024-11-28 21:37:32,005 - __main__ - INFO - 
+            QUESTION INDEX: 52
+            QUESTION: True/False: Deep Q-learning approximates the Q-function using a neural network
+            EXPECTED: true
+            RESPONSE: "True."
+            SOURCES: ['467data/467notes.pdf:73:2', '467data/467notes.pdf:72:3', '467data/467notes.pdf:74:0', '467data/467notes.pdf:72:4', '467data/467notes.pdf:70:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:32,005 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:32,544 - __main__ - INFO - querying validation model
+2024-11-28 21:37:33,137 - __main__ - INFO - 
+            QUESTION INDEX: 53
+            QUESTION: True/False: The exploration-exploitation tradeoff is only relevant in supervised learning
+            EXPECTED: false
+            RESPONSE: "False. The exploration-exploitation tradeoff is mentioned throughout the text as a fundamental concept in reinforcement learning, not just in supervised learning."
+            SOURCES: ['467data/467notes.pdf:72:0', '467data/467notes.pdf:71:3', '467data/467notes.pdf:67:1', '467data/467notes.pdf:40:1', '467data/467notes.pdf:73:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:33,137 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:33,704 - __main__ - INFO - querying validation model
+2024-11-28 21:37:34,003 - __main__ - INFO - 
+            QUESTION INDEX: 54
+            QUESTION: True/False: Reinforcement learning does not require labeled data
+            EXPECTED: true
+            RESPONSE: "True. According to the context, reinforcement learning starts with no data and collects it over time by interacting with the world, whereas supervised and unsupervised learning rely on pre-collected data."
+            SOURCES: ['467data/467notes.pdf:67:1', '467data/467notes.pdf:74:0', '467data/467notes.pdf:67:2', '467data/467notes.pdf:73:2', '467data/467notes.pdf:39:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:34,004 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:34,723 - __main__ - INFO - querying validation model
+2024-11-28 21:37:35,007 - __main__ - INFO - 
+            QUESTION INDEX: 55
+            QUESTION: True/False: Cross-validation is used to evaluate model performance on unseen data
+            EXPECTED: true
+            RESPONSE: "True. According to the text, "The whole point of machine learning is that labels on seen examples must give you some information about labels on unseen examples." This implies that cross-validation (or splitting a dataset into training, development, and test subsets) is used to evaluate model performance on unseen data."
+            SOURCES: ['467data/467notes.pdf:36:1', '467data/467notes.pdf:27:0', '467data/467notes.pdf:32:2', '467data/467notes.pdf:25:3', '467data/467notes.pdf:26:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:35,007 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:35,624 - __main__ - INFO - querying validation model
+2024-11-28 21:37:35,948 - __main__ - INFO - 
+            QUESTION INDEX: 56
+            QUESTION: True/False: Logistic regression can only handle binary classification problems
+            EXPECTED: false
+            RESPONSE: "True. According to the text, logistic regression "works for binary classification", but there is no statement that it cannot be used for multi-class classification, which is mentioned as softmax regression or multinomial logistic regression."
+            SOURCES: ['467data/467notes.pdf:44:0', '467data/467notes.pdf:17:0', '467data/467notes.pdf:41:1', '467data/467notes.pdf:41:4', '467data/467notes.pdf:20:2']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:35,949 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:36,551 - __main__ - INFO - querying validation model
+2024-11-28 21:37:36,886 - __main__ - INFO - 
+            QUESTION INDEX: 57
+            QUESTION: True/False: Gradient descent requires the loss function to be differentiable
+            EXPECTED: true
+            RESPONSE: "False. According to the text, gradient descent does not require a differentiable loss function, but rather it is applicable for loss functions that are convex and have continuous gradients (in the case of zi being discrete variables, an alternating minimization strategy is used instead)."
+            SOURCES: ['467data/467notes.pdf:49:3', '467data/467notes.pdf:10:4', '467data/467notes.pdf:8:2', '467data/467notes.pdf:7:3', '467data/467notes.pdf:19:2']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:37:36,886 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:37,516 - __main__ - INFO - querying validation model
+2024-11-28 21:37:37,811 - __main__ - INFO - 
+            QUESTION INDEX: 58
+            QUESTION: True/False: Regularization can reduce overfitting in machine learning models
+            EXPECTED: true
+            RESPONSE: "True. According to the text, regularization (such as L2 regularization) helps reduce overfitting by encouraging "simpler" functions and imposing a soft constraint to avoid non-meaningful fluctuations."
+            SOURCES: ['467data/467notes.pdf:27:0', '467data/467notes.pdf:24:0', '467data/467notes.pdf:24:1', '467data/467notes.pdf:27:2', '467data/467notes.pdf:28:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:37,811 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:38,424 - __main__ - INFO - querying validation model
+2024-11-28 21:37:38,760 - __main__ - INFO - 
+            QUESTION INDEX: 59
+            QUESTION: True/False: A higher learning rate always results in faster convergence of gradient descent
+            EXPECTED: false
+            RESPONSE: "True. According to the text, a smaller learning rate (η) determines how small of a step we want to take at each iteration, implying that a higher learning rate would result in larger steps and potentially slower convergence."
+            SOURCES: ['467data/467notes.pdf:10:4', '467data/467notes.pdf:7:3', '467data/467notes.pdf:73:2', '467data/467notes.pdf:7:1', '467data/467notes.pdf:28:0']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:37:38,760 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:39,471 - __main__ - INFO - querying validation model
+2024-11-28 21:37:39,789 - __main__ - INFO - 
+            QUESTION INDEX: 60
+            QUESTION: True/False: Overfitting means a model performs well on the training data but poorly on test data
+            EXPECTED: true
+            RESPONSE: "True. According to the text, "Overfitting" refers to a model that "fits the data better", which is achieved by fitting all of the data (i.e., achieving zero training loss), but makes poor predictions on new, unseen examples (as evaluated on a separate test dataset)."
+            SOURCES: ['467data/467notes.pdf:24:1', '467data/467notes.pdf:24:0', '467data/467notes.pdf:26:2', '467data/467notes.pdf:27:0', '467data/467notes.pdf:25:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:39,789 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:40,452 - __main__ - INFO - querying validation model
+2024-11-28 21:37:40,853 - __main__ - INFO - 
+            QUESTION INDEX: 61
+            QUESTION: True/False: PCA reduces dimensionality by maximizing variance
+            EXPECTED: true
+            RESPONSE: "True. According to the text, minimizing the reconstruction error (which is equivalent to maximizing variance) leads to a closed-form solution for w, which corresponds to the top k eigenvectors of the data, effectively reducing dimensionality."
+            SOURCES: ['467data/467notes.pdf:66:0', '467data/467notes.pdf:62:2', '467data/467notes.pdf:61:0', '467data/467notes.pdf:62:0', '467data/467notes.pdf:64:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:40,853 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:41,420 - __main__ - INFO - querying validation model
+2024-11-28 21:37:42,427 - __main__ - INFO - 
+            QUESTION INDEX: 62
+            QUESTION: True/False: The decision boundary in logistic regression is a hyperplane in feature space
+            EXPECTED: true
+            RESPONSE: "True. According to the text, "This hyperplane is always perpendicular to the weight vector w" and that the hyperplane is defined by the equation w⊤x + b = 0, which implies it's indeed a hyperplane."
+            SOURCES: ['467data/467notes.pdf:18:1', '467data/467notes.pdf:44:0', '467data/467notes.pdf:40:1', '467data/467notes.pdf:17:1', '467data/467notes.pdf:23:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:42,428 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:43,140 - __main__ - INFO - querying validation model
+2024-11-28 21:37:43,433 - __main__ - INFO - 
+            QUESTION INDEX: 63
+            QUESTION: True/False: The sigmoid function outputs values between 0 and 1
+            EXPECTED: true
+            RESPONSE: "True. According to the text, for large positive z, σ(z) approaches 1, and for small (very negative) z, σ(z) approaches 0, indicating that the output of the sigmoid function is always between 0 and 1."
+            SOURCES: ['467data/467notes.pdf:17:1', '467data/467notes.pdf:18:0', '467data/467notes.pdf:44:3', '467data/467notes.pdf:21:0', '467data/467notes.pdf:64:3']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:43,433 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:44,012 - __main__ - INFO - querying validation model
+2024-11-28 21:37:44,377 - __main__ - INFO - 
+            QUESTION INDEX: 64
+            QUESTION: True/False: k-means clustering minimizes within-cluster variance
+            EXPECTED: true
+            RESPONSE: "False. According to the text, k-means clustering actually maximizes within-cluster variance. This is because adding more clusters increases the loss function due to the increased distances between points and their assigned centroids."
+            SOURCES: ['467data/467notes.pdf:51:3', '467data/467notes.pdf:53:0', '467data/467notes.pdf:49:0', '467data/467notes.pdf:51:1', '467data/467notes.pdf:51:2']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:37:44,377 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:45,016 - __main__ - INFO - querying validation model
+2024-11-28 21:37:45,339 - __main__ - INFO - 
+            QUESTION INDEX: 65
+            QUESTION: True/False: The softmax function outputs a probability distribution across classes
+            EXPECTED: true
+            RESPONSE: "True. The softmax function is used to transform the "logits" (unnormalized scores) into a probability distribution across all classes, where each class has a non-negative probability value summing up to 1."
+            SOURCES: ['467data/467notes.pdf:21:0', '467data/467notes.pdf:21:1', '467data/467notes.pdf:20:2', '467data/467notes.pdf:57:3', '467data/467notes.pdf:20:3']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:45,339 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:45,992 - __main__ - INFO - querying validation model
+2024-11-28 21:37:46,568 - __main__ - INFO - 
+            QUESTION INDEX: 66
+            QUESTION: True/False: Reinforcement learning focuses on mapping inputs to outputs
+            EXPECTED: false
+            RESPONSE: "True. According to the text, reinforcement learning is about learning sequences of good actions that lead to large rewards by interacting with a world and trying out actions to learn about how the world works."
+            SOURCES: ['467data/467notes.pdf:67:1', '467data/467notes.pdf:67:0', '467data/467notes.pdf:74:0', '467data/467notes.pdf:73:2', '467data/467notes.pdf:67:2']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:37:46,568 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:47,072 - __main__ - INFO - querying validation model
+2024-11-28 21:37:47,377 - __main__ - INFO - 
+            QUESTION INDEX: 67
+            QUESTION: True/False: The learning rate controls the size of the steps in gradient descent
+            EXPECTED: true
+            RESPONSE: "True. According to the text, "η is the learning rate... that determines how small of a step we want to take at each iteration.""
+            SOURCES: ['467data/467notes.pdf:10:4', '467data/467notes.pdf:7:1', '467data/467notes.pdf:7:2', '467data/467notes.pdf:28:0', '467data/467notes.pdf:6:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:47,377 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:48,012 - __main__ - INFO - querying validation model
+2024-11-28 21:37:48,498 - __main__ - INFO - 
+            QUESTION INDEX: 68
+            QUESTION: True/False: Stochastic gradient descent updates parameters using the entire dataset
+            EXPECTED: false
+            RESPONSE: "False. The text states that the REINFORCE algorithm "updates θ by adding ηR(z) · PT" which suggests a single trajectory, not the entire dataset."
+            SOURCES: ['467data/467notes.pdf:28:0', '467data/467notes.pdf:76:0', '467data/467notes.pdf:10:4', '467data/467notes.pdf:73:3', '467data/467notes.pdf:27:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:48,498 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:49,120 - __main__ - INFO - querying validation model
+2024-11-28 21:37:49,454 - __main__ - INFO - 
+            QUESTION INDEX: 69
+            QUESTION: True/False: Bias in a model arises due to restrictive assumptions
+            EXPECTED: true
+            RESPONSE: "True. According to the text, bias refers to errors that arise because assumptions of the model do not match the reality of the task, and it occurs when our model family is too small to represent the actual function we're trying to model."
+            SOURCES: ['467data/467notes.pdf:26:1', '467data/467notes.pdf:40:1', '467data/467notes.pdf:27:0', '467data/467notes.pdf:26:3', '467data/467notes.pdf:26:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:49,454 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:49,896 - __main__ - INFO - querying validation model
+2024-11-28 21:37:50,177 - __main__ - INFO - 
+            QUESTION INDEX: 70
+            QUESTION: True/False: Variance in a model refers to its sensitivity to changes in the training data
+            EXPECTED: true
+            RESPONSE: "True. According to the context, "Variance is error from sensitivity to small fluctuations in the training set.""
+            SOURCES: ['467data/467notes.pdf:26:2', '467data/467notes.pdf:26:0', '467data/467notes.pdf:32:2', '467data/467notes.pdf:40:1', '467data/467notes.pdf:26:3']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:50,177 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:50,712 - __main__ - INFO - querying validation model
+2024-11-28 21:37:51,018 - __main__ - INFO - 
+            QUESTION INDEX: 71
+            QUESTION: True/False: The Normal Equation is a closed-form solution for linear regression
+            EXPECTED: true
+            RESPONSE: "True. According to the text, the optimal weight vector w actually has a closed-form solution given by the Normal Equations in linear regression."
+            SOURCES: ['467data/467notes.pdf:30:0', '467data/467notes.pdf:31:3', '467data/467notes.pdf:18:2', '467data/467notes.pdf:31:2', '467data/467notes.pdf:30:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:51,018 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:51,671 - __main__ - INFO - querying validation model
+2024-11-28 21:37:52,163 - __main__ - INFO - 
+            QUESTION INDEX: 72
+            QUESTION: True/False: Adding too many features can lead to overfitting
+            EXPECTED: true
+            RESPONSE: "True. According to the text, adding too many features (e.g., using features up to degree 7) can result in a function that "seems like it has done so by fitting a lot of non-meaningful fluctuations" and is likely to be an example of overfitting."
+            SOURCES: ['467data/467notes.pdf:24:0', '467data/467notes.pdf:26:3', '467data/467notes.pdf:27:0', '467data/467notes.pdf:24:1', '467data/467notes.pdf:32:4']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:52,163 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:52,824 - __main__ - INFO - querying validation model
+2024-11-28 21:37:53,120 - __main__ - INFO - 
+            QUESTION INDEX: 73
+            QUESTION: True/False: L2 regularization penalizes large parameter values
+            EXPECTED: true
+            RESPONSE: "True. According to the text, reducing the norm (L2 norm) of the parameters "basically means we can only learn a polynomial whose coefficients aren't that large", implying that L2 regularization punishes large parameter values."
+            SOURCES: ['467data/467notes.pdf:27:2', '467data/467notes.pdf:27:1', '467data/467notes.pdf:29:1', '467data/467notes.pdf:29:2', '467data/467notes.pdf:28:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:53,121 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:53,649 - __main__ - INFO - querying validation model
+2024-11-28 21:37:54,067 - __main__ - INFO - 
+            QUESTION INDEX: 74
+            QUESTION: True/False: The softmax function is a generalized sigmoid function for multi-class problems
+            EXPECTED: true
+            RESPONSE: "True. The softmax function is a specialized version of the sigmoid function, used to compute probabilities in multi-class classification problems."
+            SOURCES: ['467data/467notes.pdf:21:0', '467data/467notes.pdf:20:2', '467data/467notes.pdf:21:1', '467data/467notes.pdf:38:2', '467data/467notes.pdf:17:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:54,067 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:54,664 - __main__ - INFO - querying validation model
+2024-11-28 21:37:55,068 - __main__ - INFO - 
+            QUESTION INDEX: 75
+            QUESTION: True/False: The gradient of a function points in the direction of steepest ascent
+            EXPECTED: true
+            RESPONSE: "True. According to the text, the gradient ∇xF(x(t)) is the direction of steepest ascent, and taking a step in this direction increases the value of F(x(t))."
+            SOURCES: ['467data/467notes.pdf:7:3', '467data/467notes.pdf:8:0', '467data/467notes.pdf:7:2', '467data/467notes.pdf:19:2', '467data/467notes.pdf:10:4']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:55,069 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:55,548 - __main__ - INFO - querying validation model
+2024-11-28 21:37:55,973 - __main__ - INFO - 
+            QUESTION INDEX: 76
+            QUESTION: True/False: Logistic regression minimizes squared loss to find the best parameters
+            EXPECTED: false
+            RESPONSE: "False. According to the context, logistic regression uses log-sigmoid loss function, not squared loss."
+            SOURCES: ['467data/467notes.pdf:5:2', '467data/467notes.pdf:23:0', '467data/467notes.pdf:44:3', '467data/467notes.pdf:45:0', '467data/467notes.pdf:41:3']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:55,973 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:56,692 - __main__ - INFO - querying validation model
+2024-11-28 21:37:57,213 - __main__ - INFO - 
+            QUESTION INDEX: 77
+            QUESTION: True/False: k-means clustering requires the number of clusters to be pre-defined
+            EXPECTED: true
+            RESPONSE: "True. The text states "In some applications, we may simply want to divide the dataset up into a fixed number of subgroups, so this is fine." and also mentions that choosing the number of clusters ahead of time is not always possible or necessary due to the complexity of determining the correct number of clusters with k-means algorithm."
+            SOURCES: ['467data/467notes.pdf:51:3', '467data/467notes.pdf:51:1', '467data/467notes.pdf:49:0', '467data/467notes.pdf:48:3', '467data/467notes.pdf:53:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:57,213 - __main__ - INFO - Validating responses in 467questions/467qa_short_answer.csv
+2024-11-28 21:37:57,214 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:57,956 - __main__ - INFO - querying validation model
+2024-11-28 21:37:58,491 - __main__ - INFO - 
+            QUESTION INDEX: 0
+            QUESTION: What is the primary goal of linear regression?
+            EXPECTED: To predict a real-valued quantity by finding a linear function that maps inputs to outputs.
+            RESPONSE: "The primary goal of linear regression is to learn a function f that maps inputs x (e.g., features) to outputs y (e.g., labels), by minimizing the squared loss function L(θ) with respect to θ, which represents the weights and bias of the linear model."
+            SOURCES: ['467data/467notes.pdf:4:0', '467data/467notes.pdf:5:2', '467data/467notes.pdf:30:0', '467data/467notes.pdf:10:3', '467data/467notes.pdf:18:2']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:58,491 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:58,907 - __main__ - INFO - querying validation model
+2024-11-28 21:37:59,272 - __main__ - INFO - 
+            QUESTION INDEX: 1
+            QUESTION: What are the components of the parameter vector in linear regression?
+            EXPECTED: The weight vector and the bias.
+            RESPONSE: "The parameter vector in linear regression consists of two components:
+
+1. w1
+2. w0"
+            SOURCES: ['467data/467notes.pdf:23:0', '467data/467notes.pdf:18:2', '467data/467notes.pdf:9:2', '467data/467notes.pdf:30:0', '467data/467notes.pdf:4:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:37:59,272 - __main__ - INFO - querying RAG + model
+2024-11-28 21:37:59,804 - __main__ - INFO - querying validation model
+2024-11-28 21:38:00,220 - __main__ - INFO - 
+            QUESTION INDEX: 2
+            QUESTION: How is the bias term represented in linear regression?
+            EXPECTED: As a scalar added to the linear combination of weights and features.
+            RESPONSE: "The bias term in linear regression represents the baseline value or starting point, similar to a "baseline house price". It's an amount of increase/decrease per feature."
+            SOURCES: ['467data/467notes.pdf:5:0', '467data/467notes.pdf:8:1', '467data/467notes.pdf:26:1', '467data/467notes.pdf:17:1', '467data/467notes.pdf:26:0']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:38:00,220 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:00,951 - __main__ - INFO - querying validation model
+2024-11-28 21:38:01,488 - __main__ - INFO - 
+            QUESTION INDEX: 3
+            QUESTION: What is the loss function typically used in linear regression?
+            EXPECTED: The squared loss function.
+            RESPONSE: "The typical loss function used in linear regression is the squared loss function, defined as L(θ) = 1/n ∑[f(x(i); θ) - y]², where f(x; θ) is the predicted output and y is the true output."
+            SOURCES: ['467data/467notes.pdf:5:2', '467data/467notes.pdf:30:0', '467data/467notes.pdf:45:0', '467data/467notes.pdf:19:1', '467data/467notes.pdf:44:3']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:01,488 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:02,308 - __main__ - INFO - querying validation model
+2024-11-28 21:38:02,729 - __main__ - INFO - 
+            QUESTION INDEX: 4
+            QUESTION: How is the gradient defined in gradient descent?
+            EXPECTED: As the vector of partial derivatives of the loss function with respect to the parameters.
+            RESPONSE: "The gradient is defined as ∇xF(x(t)) = -∇f(x(t)), where f(x) is the function to be minimized, and it represents the direction of steepest ascent. In other words, the gradient points in the direction that would increase the value of the function, so taking steps in the opposite direction (-∇f(x(t))) will decrease the value of the function."
+            SOURCES: ['467data/467notes.pdf:10:4', '467data/467notes.pdf:7:3', '467data/467notes.pdf:6:1', '467data/467notes.pdf:7:2', '467data/467notes.pdf:9:0']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:38:02,729 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:03,216 - __main__ - INFO - querying validation model
+2024-11-28 21:38:03,680 - __main__ - INFO - 
+            QUESTION INDEX: 5
+            QUESTION: What does convexity guarantee in gradient descent?
+            EXPECTED: That all local minima are global minima.
+            RESPONSE: "Convexity guarantees that the global minimum will be found by the gradient descent algorithm."
+            SOURCES: ['467data/467notes.pdf:10:4', '467data/467notes.pdf:11:0', '467data/467notes.pdf:13:0', '467data/467notes.pdf:13:3', '467data/467notes.pdf:14:1']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:03,681 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:04,072 - __main__ - INFO - querying validation model
+2024-11-28 21:38:04,462 - __main__ - INFO - 
+            QUESTION INDEX: 6
+            QUESTION: What does MLE stand for in machine learning?
+            EXPECTED: Maximum Likelihood Estimation.
+            RESPONSE: "MLE stands for Maximum Likelihood Estimation."
+            SOURCES: ['467data/467notes.pdf:14:3', '467data/467notes.pdf:35:0', '467data/467notes.pdf:0:0', '467data/467notes.pdf:58:0', '467data/467notes.pdf:15:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:04,462 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:05,211 - __main__ - INFO - querying validation model
+2024-11-28 21:38:05,532 - __main__ - INFO - 
+            QUESTION INDEX: 7
+            QUESTION: What does the term f(x; theta) represent in linear regression?
+            EXPECTED: The predicted value based on input x and parameters theta.
+            RESPONSE: "In linear regression, f(x; θ) represents the prediction function that depends on the parameter values θ (w and b). It is a scalar value that is calculated as w1x + w2x2 + b, where x is the input feature, w1 and w2 are weights, and b is the bias term."
+            SOURCES: ['467data/467notes.pdf:9:2', '467data/467notes.pdf:17:1', '467data/467notes.pdf:5:1', '467data/467notes.pdf:18:2', '467data/467notes.pdf:8:1']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:38:05,533 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:06,168 - __main__ - INFO - querying validation model
+2024-11-28 21:38:06,510 - __main__ - INFO - 
+            QUESTION INDEX: 8
+            QUESTION: What is the function of the learning rate in gradient descent?
+            EXPECTED: It controls the step size taken during each iteration of optimization.
+            RESPONSE: "The learning rate (η) in gradient descent determines the size of each step taken towards minimizing the loss function. A small learning rate means a small step, while a large learning rate means a larger step."
+            SOURCES: ['467data/467notes.pdf:30:0', '467data/467notes.pdf:10:4', '467data/467notes.pdf:7:1', '467data/467notes.pdf:6:1', '467data/467notes.pdf:73:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:06,510 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:07,036 - __main__ - INFO - querying validation model
+2024-11-28 21:38:07,382 - __main__ - INFO - 
+            QUESTION INDEX: 9
+            QUESTION: How is the initial guess for parameters chosen in gradient descent?
+            EXPECTED: It is typically initialized to zero or randomly chosen.
+            RESPONSE: "The text does not explicitly state how the initial guess for parameters (η) is chosen, but it mentions that "for problems like linear regression, it turns out that initialization does not matter very much"."
+            SOURCES: ['467data/467notes.pdf:6:1', '467data/467notes.pdf:49:4', '467data/467notes.pdf:7:1', '467data/467notes.pdf:58:0', '467data/467notes.pdf:30:0']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:38:07,382 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:08,128 - __main__ - INFO - querying validation model
+2024-11-28 21:38:08,735 - __main__ - INFO - 
+            QUESTION INDEX: 10
+            QUESTION: What does overfitting mean in machine learning?
+            EXPECTED: When a model performs well on training data but poorly on unseen data.
+            RESPONSE: "Overfitting refers to a situation where a model fits the training data too closely, resulting in low training error, but poorly generalizes to new, unseen examples. This means the model performs well on its own training data, but fails to make accurate predictions on fresh data not seen during training."
+            SOURCES: ['467data/467notes.pdf:24:1', '467data/467notes.pdf:24:0', '467data/467notes.pdf:27:0', '467data/467notes.pdf:26:3', '467data/467notes.pdf:25:3']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:08,735 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:09,336 - __main__ - INFO - querying validation model
+2024-11-28 21:38:09,647 - __main__ - INFO - 
+            QUESTION INDEX: 11
+            QUESTION: What is one common method to detect overfitting?
+            EXPECTED: Compare training loss with test loss.
+            RESPONSE: "One common method to detect overfitting is by plotting train vs. test loss, which shows when increasing model complexity improves both training loss and test loss, but then hurts test loss as it worsens overfitting."
+            SOURCES: ['467data/467notes.pdf:24:0', '467data/467notes.pdf:24:1', '467data/467notes.pdf:26:3', '467data/467notes.pdf:27:0', '467data/467notes.pdf:25:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:09,648 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:10,200 - __main__ - INFO - querying validation model
+2024-11-28 21:38:10,754 - __main__ - INFO - 
+            QUESTION INDEX: 12
+            QUESTION: What is the purpose of a development set in machine learning?
+            EXPECTED: To tune hyperparameters like learning rate or model complexity.
+            RESPONSE: "The purpose of a development set in machine learning is to choose hyperparameters such as the number of features and the learning rate for gradient descent, allowing for a more accurate estimation of model performance."
+            SOURCES: ['467data/467notes.pdf:25:1', '467data/467notes.pdf:25:0', '467data/467notes.pdf:25:3', '467data/467notes.pdf:39:2', '467data/467notes.pdf:14:3']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:10,755 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:11,252 - __main__ - INFO - querying validation model
+2024-11-28 21:38:11,824 - __main__ - INFO - 
+            QUESTION INDEX: 13
+            QUESTION: What does a test set evaluate in machine learning?
+            EXPECTED: The model's performance on unseen data.
+            RESPONSE: "A test set evaluates how well a model performs on unseen examples, estimating its ability and providing an unbiased estimate of its performance."
+            SOURCES: ['467data/467notes.pdf:25:1', '467data/467notes.pdf:25:3', '467data/467notes.pdf:25:0', '467data/467notes.pdf:27:0', '467data/467notes.pdf:39:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:11,824 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:12,540 - __main__ - INFO - querying validation model
+2024-11-28 21:38:13,018 - __main__ - INFO - 
+            QUESTION INDEX: 14
+            QUESTION: How does adding polynomial features affect a linear regression model?
+            EXPECTED: It enables the model to capture non-linear patterns.
+            RESPONSE: "Adding polynomial features (e.g. x^2, x^3) increases the number of features required to fit the data, from O(d^1) for linear features to O(d^q) for q-degree polynomials. This can lead to large feature vectors and potentially slow training times."
+            SOURCES: ['467data/467notes.pdf:43:3', '467data/467notes.pdf:9:1', '467data/467notes.pdf:24:0', '467data/467notes.pdf:10:3', '467data/467notes.pdf:9:2']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:13,019 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:13,723 - __main__ - INFO - querying validation model
+2024-11-28 21:38:14,126 - __main__ - INFO - 
+            QUESTION INDEX: 15
+            QUESTION: What is the equation for a linear regression model?
+            EXPECTED: f(x) = w * x + b.
+            RESPONSE: "The Normal Equations for Linear Regression provide a closed-form solution, given by:
+
+w = (X^T X)^-1 X^T y
+
+where w is the weight vector, X is the design matrix of feature values, and y is the target variable."
+            SOURCES: ['467data/467notes.pdf:30:0', '467data/467notes.pdf:18:2', '467data/467notes.pdf:4:0', '467data/467notes.pdf:9:2', '467data/467notes.pdf:4:1']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:38:14,127 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:14,924 - __main__ - INFO - querying validation model
+2024-11-28 21:38:15,206 - __main__ - INFO - 
+            QUESTION INDEX: 16
+            QUESTION: What is the role of the gradient in gradient descent?
+            EXPECTED: It identifies the direction to minimize the loss function.
+            RESPONSE: "The gradient plays the critical role of indicating the direction in which to move to minimize the function f(x), specifically in the opposite direction of the steepest ascent. It does so by pointing towards decreasing the value of f(x). The sign and magnitude of the gradient are used to update the parameters, moving in a direction that reduces the error."
+            SOURCES: ['467data/467notes.pdf:10:4', '467data/467notes.pdf:7:3', '467data/467notes.pdf:7:2', '467data/467notes.pdf:19:2', '467data/467notes.pdf:9:0']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:15,206 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:15,855 - __main__ - INFO - querying validation model
+2024-11-28 21:38:16,212 - __main__ - INFO - 
+            QUESTION INDEX: 17
+            QUESTION: What does regularization aim to prevent?
+            EXPECTED: Overfitting.
+            RESPONSE: "Regularization aims to prevent overfitting by imposing a soft constraint that encourages "simpler" functions. This helps reduce the complexity of the model and prevents it from fitting too closely to the training data, making it less likely to generalize well to unseen data."
+            SOURCES: ['467data/467notes.pdf:27:0', '467data/467notes.pdf:27:1', '467data/467notes.pdf:29:2', '467data/467notes.pdf:27:2', '467data/467notes.pdf:28:3']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:16,212 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:16,744 - __main__ - INFO - querying validation model
+2024-11-28 21:38:17,050 - __main__ - INFO - 
+            QUESTION INDEX: 18
+            QUESTION: What does L2 regularization penalize?
+            EXPECTED: The sum of the squares of the weights.
+            RESPONSE: "L2 regularization penalizes the L2 norm (sum of squared entries) of the parameters, encouraging them to have a small magnitude."
+            SOURCES: ['467data/467notes.pdf:27:1', '467data/467notes.pdf:27:2', '467data/467notes.pdf:29:1', '467data/467notes.pdf:29:0', '467data/467notes.pdf:29:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:17,051 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:17,684 - __main__ - INFO - querying validation model
+2024-11-28 21:38:18,068 - __main__ - INFO - 
+            QUESTION INDEX: 19
+            QUESTION: What is an indicator feature?
+            EXPECTED: A binary feature representing a specific condition or category.
+            RESPONSE: "An indicator feature is a binary feature that can only take on two values (0 or 1), created from a boolean expression over x. It is used to help linear regression models learn non-linear relationships by pooling multiple features together, making it possible to estimate the weight associated with certain characteristics."
+            SOURCES: ['467data/467notes.pdf:9:2', '467data/467notes.pdf:9:3', '467data/467notes.pdf:72:5', '467data/467notes.pdf:10:1', '467data/467notes.pdf:72:4']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:18,068 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:18,607 - __main__ - INFO - querying validation model
+2024-11-28 21:38:18,903 - __main__ - INFO - 
+            QUESTION INDEX: 20
+            QUESTION: What does the sigmoid function output in logistic regression?
+            EXPECTED: A probability value between 0 and 1.
+            RESPONSE: "The sigmoid function, σ(z) = 1 / (1 + e^(-z)), outputs a value between 0 and 1."
+            SOURCES: ['467data/467notes.pdf:17:1', '467data/467notes.pdf:45:0', '467data/467notes.pdf:44:3', '467data/467notes.pdf:17:0', '467data/467notes.pdf:23:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:18,904 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:19,708 - __main__ - INFO - querying validation model
+2024-11-28 21:38:20,038 - __main__ - INFO - 
+            QUESTION INDEX: 21
+            QUESTION: How does logistic regression classify data points?
+            EXPECTED: By determining which side of the decision boundary they fall on.
+            RESPONSE: "Logistic regression classifies data points by computing the dot product of the feature vector x and the parameter vector w, where w is composed of two vectors (w1, w0) that differentiate positive from negative examples. If the result is greater than 0, it predicts a positive class; otherwise, it predicts a negative class."
+            SOURCES: ['467data/467notes.pdf:17:0', '467data/467notes.pdf:23:0', '467data/467notes.pdf:41:1', '467data/467notes.pdf:44:0', '467data/467notes.pdf:41:3']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:38:20,038 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:20,372 - __main__ - INFO - querying validation model
+2024-11-28 21:38:20,750 - __main__ - INFO - 
+            QUESTION INDEX: 22
+            QUESTION: What is the name of the function used for multi-class classification probabilities?
+            EXPECTED: Softmax function.
+            RESPONSE: "The softmax function."
+            SOURCES: ['467data/467notes.pdf:33:0', '467data/467notes.pdf:56:0', '467data/467notes.pdf:20:3', '467data/467notes.pdf:33:1', '467data/467notes.pdf:21:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:20,750 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:21,487 - __main__ - INFO - querying validation model
+2024-11-28 21:38:21,852 - __main__ - INFO - 
+            QUESTION INDEX: 23
+            QUESTION: What is the loss function used in logistic regression?
+            EXPECTED: The negative log-likelihood.
+            RESPONSE: "The loss function used in logistic regression is the log-sigmoid loss, also known as the "squared hinge" loss, where the margin (y · w⊤x) is always ≥ 1 and the loss decreases as the margin tends towards positive infinity."
+            SOURCES: ['467data/467notes.pdf:45:0', '467data/467notes.pdf:19:1', '467data/467notes.pdf:17:1', '467data/467notes.pdf:5:2', '467data/467notes.pdf:23:0']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:38:21,853 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:22,592 - __main__ - INFO - querying validation model
+2024-11-28 21:38:23,043 - __main__ - INFO - 
+            QUESTION INDEX: 24
+            QUESTION: What is the purpose of cross-entropy in classification?
+            EXPECTED: To measure how well the predicted probabilities match the true labels.
+            RESPONSE: "The purpose of cross-entropy in classification is to measure how well a predicted label distribution "covers" the true label distribution, with lower cross-entropy signifying that the prediction is closer to the truth. It is minimized when the predicted and true distributions are identical (i.e., when the model makes accurate predictions)."
+            SOURCES: ['467data/467notes.pdf:22:0', '467data/467notes.pdf:65:0', '467data/467notes.pdf:39:1', '467data/467notes.pdf:73:2', '467data/467notes.pdf:23:0']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:23,043 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:23,856 - __main__ - INFO - querying validation model
+2024-11-28 21:38:24,142 - __main__ - INFO - 
+            QUESTION INDEX: 25
+            QUESTION: What are the two key sources of error in machine learning models?
+            EXPECTED: Bias and variance.
+            RESPONSE: "The two key sources of error in machine learning models are:
+
+1. Bias: Errors that arise from assumptions of the model not matching reality.
+2. Variance: Errors caused by sensitivity to small fluctuations in the training set, resulting from having a large model family or too many candidates to identify the best one."
+            SOURCES: ['467data/467notes.pdf:26:1', '467data/467notes.pdf:27:0', '467data/467notes.pdf:40:1', '467data/467notes.pdf:30:0', '467data/467notes.pdf:26:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:24,142 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:24,739 - __main__ - INFO - querying validation model
+2024-11-28 21:38:25,121 - __main__ - INFO - 
+            QUESTION INDEX: 26
+            QUESTION: What is bias in machine learning?
+            EXPECTED: Error due to restrictive assumptions in the model.
+            RESPONSE: "In machine learning, bias refers to errors that arise because assumptions of the model do not match reality. It occurs when the model family used is too small to represent the actual function being modeled, leading to underfitting and poor performance on unseen data."
+            SOURCES: ['467data/467notes.pdf:26:1', '467data/467notes.pdf:27:0', '467data/467notes.pdf:40:1', '467data/467notes.pdf:26:2', '467data/467notes.pdf:26:0']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:25,122 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:25,836 - __main__ - INFO - querying validation model
+2024-11-28 21:38:26,216 - __main__ - INFO - 
+            QUESTION INDEX: 27
+            QUESTION: What is variance in machine learning?
+            EXPECTED: Error due to sensitivity to small fluctuations in the training set.
+            RESPONSE: "In machine learning, variance refers to the error caused by sensitivity to small fluctuations in the training data. It's a measure of how much the model's performance can be improved by increasing its capacity (i.e., adding more parameters). High variance means the model is likely to overfit the training data."
+            SOURCES: ['467data/467notes.pdf:26:2', '467data/467notes.pdf:53:3', '467data/467notes.pdf:64:2', '467data/467notes.pdf:26:0', '467data/467notes.pdf:40:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:26,217 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:26,968 - __main__ - INFO - querying validation model
+2024-11-28 21:38:27,329 - __main__ - INFO - 
+            QUESTION INDEX: 28
+            QUESTION: What is the role of the kernel trick in SVMs?
+            EXPECTED: To enable learning in high-dimensional spaces without explicitly computing them.
+            RESPONSE: "The kernel trick allows for SVMs to be effective even with large datasets by reducing the runtime complexity from O(n^2) to linear. It enables predictions to depend only on the dot products with a subset of support vectors, rather than all training examples."
+            SOURCES: ['467data/467notes.pdf:45:1', '467data/467notes.pdf:44:2', '467data/467notes.pdf:44:3', '467data/467notes.pdf:46:3', '467data/467notes.pdf:46:2']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:27,329 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:27,900 - __main__ - INFO - querying validation model
+2024-11-28 21:38:28,308 - __main__ - INFO - 
+            QUESTION INDEX: 29
+            QUESTION: What is the goal of k-means clustering?
+            EXPECTED: To partition data into k clusters where each point belongs to the nearest cluster center.
+            RESPONSE: "The goal of k-means clustering is to minimize the sum of distances between each point in a dataset and its assigned cluster mean (centroid), with the aim of grouping similar points into clusters."
+            SOURCES: ['467data/467notes.pdf:49:0', '467data/467notes.pdf:51:3', '467data/467notes.pdf:53:0', '467data/467notes.pdf:48:2', '467data/467notes.pdf:51:1']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:28,309 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:29,340 - __main__ - INFO - querying validation model
+2024-11-28 21:38:29,722 - __main__ - INFO - 
+            QUESTION INDEX: 30
+            QUESTION: What is a hyperplane in SVMs?
+            EXPECTED: The decision boundary separating different classes.
+            RESPONSE: "In SVMs, a hyperplane is defined by w⊤x = c, where w and x are vectors, ⊤ denotes dot product, and c is a constant. In a linearly separable dataset, there can be multiple hyperplanes (w⊤x = 0, w⊤x = -1, etc.) parallel to each other, with the distance between them determined by the L2 norm of w (∥w∥)."
+            SOURCES: ['467data/467notes.pdf:46:1', '467data/467notes.pdf:47:0', '467data/467notes.pdf:46:2', '467data/467notes.pdf:45:2', '467data/467notes.pdf:44:2']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:29,722 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:30,098 - __main__ - INFO - querying validation model
+2024-11-28 21:38:31,337 - __main__ - INFO - 
+            QUESTION INDEX: 31
+            QUESTION: What does PCA stand for in dimensionality reduction?
+            EXPECTED: Principal Component Analysis.
+            RESPONSE: "In dimensionality reduction, PCA stands for Principal Component Analysis."
+            SOURCES: ['467data/467notes.pdf:66:0', '467data/467notes.pdf:61:0', '467data/467notes.pdf:62:2', '467data/467notes.pdf:62:0', '467data/467notes.pdf:61:1']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:31,338 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:32,284 - __main__ - INFO - querying validation model
+2024-11-28 21:38:32,664 - __main__ - INFO - 
+            QUESTION INDEX: 32
+            QUESTION: What does the term generative classifier mean?
+            EXPECTED: A model that learns the joint probability distribution P(x, y).
+            RESPONSE: "According to the context, a generative classifier is a type of classification model that models the joint process of generating both the input features (x) and the target labels (y). This allows it to use Bayes Rule to compute the final probability of the target label given the input features. In contrast, discriminative classifiers only model the conditional probability of x given y."
+            SOURCES: ['467data/467notes.pdf:33:0', '467data/467notes.pdf:38:1', '467data/467notes.pdf:38:0', '467data/467notes.pdf:33:1', '467data/467notes.pdf:2:0']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:38:32,664 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:33,392 - __main__ - INFO - querying validation model
+2024-11-28 21:38:34,331 - __main__ - INFO - 
+            QUESTION INDEX: 33
+            QUESTION: What does Naive Bayes assume about features?
+            EXPECTED: That they are conditionally independent given the class.
+            RESPONSE: "Naive Bayes assumes that each feature (or word in text classification) is independently sampled given the class label y. This means that the distribution of a single feature is not dependent on the value of any other feature, and can be modeled separately for each possible class."
+            SOURCES: ['467data/467notes.pdf:37:0', '467data/467notes.pdf:34:0', '467data/467notes.pdf:33:0', '467data/467notes.pdf:34:1', '467data/467notes.pdf:34:3']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:34,331 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:34,988 - __main__ - INFO - querying validation model
+2024-11-28 21:38:35,292 - __main__ - INFO - 
+            QUESTION INDEX: 34
+            QUESTION: What is the purpose of Laplace smoothing in Naive Bayes?
+            EXPECTED: To handle zero probabilities by adding a small constant to counts.
+            RESPONSE: "The purpose of Laplace smoothing in Naive Bayes is to correct for sparse data by adding a small amount (λ) to the denominator when modeling P(x | y) and P(y). This ensures that both positive and negative examples are counted, preventing zero probability estimates."
+            SOURCES: ['467data/467notes.pdf:38:0', '467data/467notes.pdf:37:0', '467data/467notes.pdf:33:0', '467data/467notes.pdf:34:0', '467data/467notes.pdf:33:2']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:35,293 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:36,248 - __main__ - INFO - querying validation model
+2024-11-28 21:38:36,571 - __main__ - INFO - 
+            QUESTION INDEX: 35
+            QUESTION: What is a Markov Decision Process (MDP)?
+            EXPECTED: A framework for modeling decision-making where outcomes are partly random and partly under the control of a decision-maker.
+            RESPONSE: "A Markov Decision Process (MDP) is a formal description of what are the possible states an agent could be in, what actions they could take, how it’s decided what state they end up in, etc. It consists of:
+
+* A set of states S
+* A starting state sstart ∈ S
+* Actions(s): A function that returns the set of possible actions to take in every state s"
+            SOURCES: ['467data/467notes.pdf:68:0', '467data/467notes.pdf:67:3', '467data/467notes.pdf:68:3', '467data/467notes.pdf:58:0', '467data/467notes.pdf:70:1']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:38:36,572 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:37,088 - __main__ - INFO - querying validation model
+2024-11-28 21:38:37,476 - __main__ - INFO - 
+            QUESTION INDEX: 36
+            QUESTION: What does Q-learning aim to compute?
+            EXPECTED: The optimal action-value function for reinforcement learning.
+            RESPONSE: "Q-learning aims to learn an estimate of the Q-value function, which predicts the expected return for each state-action pair."
+            SOURCES: ['467data/467notes.pdf:73:2', '467data/467notes.pdf:72:3', '467data/467notes.pdf:70:1', '467data/467notes.pdf:72:4', '467data/467notes.pdf:74:0']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:37,476 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:38,276 - __main__ - INFO - querying validation model
+2024-11-28 21:38:38,818 - __main__ - INFO - 
+            QUESTION INDEX: 37
+            QUESTION: What is the exploration-exploitation tradeoff in reinforcement learning?
+            EXPECTED: The balance between trying new actions and optimizing known actions.
+            RESPONSE: "In reinforcement learning, the exploration-exploitation tradeoff refers to the need to balance trying new actions (exploration) with choosing actions that are known to be good based on previous experiences (exploitation). This is a fundamental challenge, as trusting Q-value estimates too much can lead to missed opportunities, while never exploring new actions can prevent learning more about the environment."
+            SOURCES: ['467data/467notes.pdf:72:0', '467data/467notes.pdf:71:3', '467data/467notes.pdf:67:2', '467data/467notes.pdf:70:1', '467data/467notes.pdf:67:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:38,818 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:40,216 - __main__ - INFO - querying validation model
+2024-11-28 21:38:40,663 - __main__ - INFO - 
+            QUESTION INDEX: 38
+            QUESTION: What is the role of the learning rate in reinforcement learning?
+            EXPECTED: To control how much the Q-values are updated in each step.
+            RESPONSE: "The learning rate is not mentioned as a specific parameter in the given context. However, it can be inferred that the learning rate (or learning step size) affects how quickly the algorithm collects data and learns from experience.
+
+In Q-learning, for example, the update rule involves adding a fixed increment to the estimated Q-value based on the observed reward and Q-value difference. The magnitude of this increment is determined by the learning rate (usually denoted as α).
+
+A high learning rate would result in faster convergence but might also lead to oscillations or overestimation of Q-values, while a low learning rate would result in slower convergence but potentially more accurate estimates.
+
+In reinforcement learning, the learning rate represents how much influence the algorithm has on collecting data and making decisions."
+            SOURCES: ['467data/467notes.pdf:67:0', '467data/467notes.pdf:67:1', '467data/467notes.pdf:67:2', '467data/467notes.pdf:70:1', '467data/467notes.pdf:74:2']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:40,663 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:41,352 - __main__ - INFO - querying validation model
+2024-11-28 21:38:41,683 - __main__ - INFO - 
+            QUESTION INDEX: 39
+            QUESTION: What does state discretization mean in reinforcement learning?
+            EXPECTED: Breaking down the continuous state space into discrete bins for simpler modeling.
+            RESPONSE: "State discretization refers to the process of representing a continuous or high-dimensional state space into a finite, discrete set of states for a Markov Decision Process (MDP). This allows tabular Q-learning methods to be used effectively when the state space is too large to handle directly."
+            SOURCES: ['467data/467notes.pdf:74:1', '467data/467notes.pdf:67:3', '467data/467notes.pdf:72:1', '467data/467notes.pdf:67:1', '467data/467notes.pdf:68:2']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:38:41,684 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:42,351 - __main__ - INFO - querying validation model
+2024-11-28 21:38:42,735 - __main__ - INFO - 
+            QUESTION INDEX: 40
+            QUESTION: What is the goal of deep Q-learning?
+            EXPECTED: To approximate the Q-function using a deep neural network.
+            RESPONSE: "The goal of Deep Q-Learning is to estimate the Q-values using a neural network (Deep Q Network) instead of a table or linear model, allowing it to handle more complex state spaces."
+            SOURCES: ['467data/467notes.pdf:73:2', '467data/467notes.pdf:72:3', '467data/467notes.pdf:70:1', '467data/467notes.pdf:72:4', '467data/467notes.pdf:74:0']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:42,736 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:43,204 - __main__ - INFO - querying validation model
+2024-11-28 21:38:43,614 - __main__ - INFO - 
+            QUESTION INDEX: 41
+            QUESTION: What is policy gradient used for?
+            EXPECTED: To directly optimize the policy in reinforcement learning.
+            RESPONSE: "Policy Gradient methods are used to train a model that predicts the best action given the current state, skipping the intermediate step of learning Q-values."
+            SOURCES: ['467data/467notes.pdf:3:1', '467data/467notes.pdf:74:1', '467data/467notes.pdf:76:1', '467data/467notes.pdf:76:0', '467data/467notes.pdf:10:4']
+            MATCHES: False
+            RELEVANT_SOURCES: False
+            ============================
+            
+2024-11-28 21:38:43,615 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:44,344 - __main__ - INFO - querying validation model
+2024-11-28 21:38:44,761 - __main__ - INFO - 
+            QUESTION INDEX: 42
+            QUESTION: What does softmax regression generalize?
+            EXPECTED: Logistic regression to multi-class classification.
+            RESPONSE: "Softmax regression generalizes logistic regression to multi-class classification problems by extending it from binary classes (e.g., 0/1) to C classes, where each class has its own parameter vector. It predicts a probability distribution over all possible classes for a given input."
+            SOURCES: ['467data/467notes.pdf:21:0', '467data/467notes.pdf:57:3', '467data/467notes.pdf:20:2', '467data/467notes.pdf:21:1', '467data/467notes.pdf:17:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:44,762 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:45,458 - __main__ - INFO - querying validation model
+2024-11-28 21:38:45,892 - __main__ - INFO - 
+            QUESTION INDEX: 43
+            QUESTION: What is the decision boundary in logistic regression?
+            EXPECTED: The hyperplane where w * x + b = 0.
+            RESPONSE: "The decision boundary in logistic regression is defined by the equation w⊤x + b = 0, where w and b are parameters of the model, and x is the feature vector. This hyperplane is always perpendicular to the weight vector w."
+            SOURCES: ['467data/467notes.pdf:18:1', '467data/467notes.pdf:40:1', '467data/467notes.pdf:17:1', '467data/467notes.pdf:17:0', '467data/467notes.pdf:47:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:45,892 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:46,700 - __main__ - INFO - querying validation model
+2024-11-28 21:38:47,064 - __main__ - INFO - 
+            QUESTION INDEX: 44
+            QUESTION: What is the main difference between generative and discriminative classifiers?
+            EXPECTED: Generative classifiers model P(x, y), while discriminative classifiers model P(y | x).
+            RESPONSE: "The main difference between generative and discriminative classifiers is their approach:
+
+* Generative classifiers model the joint process of generating both inputs (x) and outputs (y), allowing for Bayes' Rule to compute p(y | x).
+* Discriminative classifiers only model the conditional probability of y given x, without assuming any relationship between x and y."
+            SOURCES: ['467data/467notes.pdf:38:1', '467data/467notes.pdf:38:0', '467data/467notes.pdf:33:0', '467data/467notes.pdf:33:1', '467data/467notes.pdf:34:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:47,064 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:47,592 - __main__ - INFO - querying validation model
+2024-11-28 21:38:47,972 - __main__ - INFO - 
+            QUESTION INDEX: 45
+            QUESTION: What is a common test to evaluate convexity of a function?
+            EXPECTED: Check if the second derivative is non-negative.
+            RESPONSE: "A univariate function f : R → R is convex if its second derivative f''(x) is always ≥ 0."
+            SOURCES: ['467data/467notes.pdf:11:0', '467data/467notes.pdf:14:1', '467data/467notes.pdf:13:0', '467data/467notes.pdf:13:3', '467data/467notes.pdf:13:2']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:47,973 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:48,484 - __main__ - INFO - querying validation model
+2024-11-28 21:38:48,773 - __main__ - INFO - 
+            QUESTION INDEX: 46
+            QUESTION: What is the primary use of PCA in machine learning?
+            EXPECTED: To reduce the dimensionality of data while retaining maximum variance.
+            RESPONSE: "The primary use of Principal Component Analysis (PCA) in machine learning is for dimensionality reduction, allowing high-dimensional data to be plotted and visualized in a lower-dimensional space."
+            SOURCES: ['467data/467notes.pdf:62:2', '467data/467notes.pdf:62:0', '467data/467notes.pdf:14:3', '467data/467notes.pdf:66:0', '467data/467notes.pdf:0:0']
+            MATCHES: True
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:48,773 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:49,512 - __main__ - INFO - querying validation model
+2024-11-28 21:38:50,379 - __main__ - INFO - 
+            QUESTION INDEX: 47
+            QUESTION: What is a multivariate Gaussian?
+            EXPECTED: A generalization of the Gaussian distribution for multiple variables.
+            RESPONSE: "A multivariate Gaussian distribution, also known as a joint normal distribution, is a probability distribution where each dimension of the random vector is normally distributed. It's parameterized by a mean vector (µ) and a covariance matrix (Σ), which controls the shape and spread of the distribution in multiple dimensions."
+            SOURCES: ['467data/467notes.pdf:55:1', '467data/467notes.pdf:53:2', '467data/467notes.pdf:56:0', '467data/467notes.pdf:53:3', '467data/467notes.pdf:54:0']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            
+2024-11-28 21:38:50,379 - __main__ - INFO - querying RAG + model
+2024-11-28 21:38:51,260 - __main__ - INFO - querying validation model
+2024-11-28 21:38:51,729 - __main__ - INFO - 
+            QUESTION INDEX: 48
+            QUESTION: What is the Expectation-Maximization (EM) algorithm used for?
+            EXPECTED: To find maximum likelihood estimates for models with latent variables.
+            RESPONSE: "The Expectation-Maximization (EM) algorithm is a general technique used to both learn unknown parameters of a probability distribution and perform inference on latent variables by alternating between two steps:
+
+1. E-step: Infer latent variable's distributions given current guess of parameters.
+2. M-step: Choose value of parameters that best fit the data based on the current inferred distribution of latent variables."
+            SOURCES: ['467data/467notes.pdf:58:0', '467data/467notes.pdf:14:3', '467data/467notes.pdf:28:3', '467data/467notes.pdf:76:0', '467data/467notes.pdf:57:3']
+            MATCHES: False
+            RELEVANT_SOURCES: True
+            ============================
+            

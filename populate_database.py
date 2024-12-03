@@ -13,14 +13,18 @@ CHROMA_PATH = "chroma"
 DATA_PATH = "data"
 
 def main():
+    global DATA_PATH
     # Check if the database should be cleared (using the --reset flag).
     parser = argparse.ArgumentParser()
     parser.add_argument("--reset", action="store_true", help="Reset the database.")
     parser.add_argument("emb_id", type=str, help="The embedding ID.")
+    parser.add_argument("data_path", type=str, help="The path to the data.")
     args = parser.parse_args()
     if args.reset:
         print("✅ Clearing Database")
         clear_database()
+
+    DATA_PATH = args.data_path
 
     # Create (or update) the data store.
     documents = load_documents()

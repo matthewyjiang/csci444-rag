@@ -1,25 +1,27 @@
 #!/bin/bash
 
-# Define the path to the text file containing arguments
-ARG_FILE="questions.txt"
+if [ "$1" == "467" ] || [ "$1" == "444" ]; then
+    data_group="$1"
+else
+    echo "Invalid argument. Please provide '467' or '444' as the data_group."
+    exit 1
+fi
 
-# Define the Python script to run
-PYTHON_SCRIPT="query_data.py"
+if [ "$2" == "tfidf" ] || [ "$2" == "nomic" ]; then
+    method="$2"
+else
+    echo "Invalid argument. Please provide 'tfidf' or 'nomic' as the method."
+    exit 1
+fi
 
-# Define the output file for results
-RESULT_FILE="results.txt"
+data_path="${data_group}data"
+questions_path="${data_group}questions"
 
-counter=1
+# Run the python script
 
-# Loop through each line in the text file
-while IFS= read -r arg; do
-  echo "Question $counter: $arg" >> "$RESULT_FILE"
+python3 populate_database.py --reset $method $data_path
 
-  # Run the Python script with the argument
-  python3 "$PYTHON_SCRIPT" "$arg" >> "$RESULT_FILE"
-  echo "-----------------------------------" >> "$RESULT_FILE"
-  ((counter++))
-done < "$ARG_FILE"
+python3 validate_responses.py $questions_path
 
 
 
