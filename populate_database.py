@@ -12,9 +12,11 @@ CHROMA_PATH = "chroma"
 DATA_PATH = "data"
 
 def main():
+    global DATA_PATH
     # Set up argument parser
     parser = argparse.ArgumentParser(description="Populate the Chroma vector database using TF-IDF weighted GloVe embeddings.")
     parser.add_argument("--reset", action="store_true", help="Reset the database.")
+    parser.add_argument("data_path", type=str, help="The path to the data.")
     parser.add_argument(
         "--embedding_path",
         type=str,
@@ -22,7 +24,7 @@ def main():
         help="Path to the pre-trained word vectors file (e.g., word2vec).",
     )
     args = parser.parse_args()
-
+    DATA_PATH = args.data_path
     # Reset the database if requested
     if args.reset:
         print("✅ Clearing Database")
