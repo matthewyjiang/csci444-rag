@@ -4,3 +4,4 @@ backup
 chroma
 questions_*
 responses*
+word2vec_embedding (GloVe).txt
